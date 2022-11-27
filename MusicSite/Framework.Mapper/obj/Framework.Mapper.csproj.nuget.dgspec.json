@@ -1,0 +1,212 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Mapper\\Framework.Mapper.csproj": {}
+  },
+  "projects": {
+    "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Mapper\\Framework.Mapper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Mapper\\Framework.Mapper.csproj",
+        "projectName": "Framework.Mapper",
+        "projectPath": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Mapper\\Framework.Mapper.csproj",
+        "packagesPath": "C:\\Users\\57442\\.nuget\\packages\\",
+        "outputPath": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Mapper\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\57442\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Models\\Framework.Models.csproj": {
+                "projectPath": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Models\\Framework.Models.csproj"
+              },
+              "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Utility\\Framework.Utility.csproj": {
+                "projectPath": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Utility\\Framework.Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Models\\Framework.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Models\\Framework.Models.csproj",
+        "projectName": "Framework.Models",
+        "projectPath": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Models\\Framework.Models.csproj",
+        "packagesPath": "C:\\Users\\57442\\.nuget\\packages\\",
+        "outputPath": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\57442\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Utility\\Framework.Utility.csproj": {
+                "projectPath": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Utility\\Framework.Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Utility\\Framework.Utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Utility\\Framework.Utility.csproj",
+        "projectName": "Framework.Utility",
+        "projectPath": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Utility\\Framework.Utility.csproj",
+        "packagesPath": "C:\\Users\\57442\\.nuget\\packages\\",
+        "outputPath": "D:\\mycode\\gitee\\music-website\\MusicSite\\Framework.Utility\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\57442\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "Microsoft.Extensions.Caching.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

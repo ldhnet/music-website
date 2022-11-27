@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "Zx6X0dkwKYCIR0cITNRychU7Jj51UvGzWnB6/D/TKgk=",
+  "Source": "MusicApi",
+  "BasePath": "_content/MusicApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MusicApi\\wwwroot",
+      "Source": "MusicApi",
+      "ContentRoot": "D:\\mycode\\gitee\\music-website\\MusicSite\\MusicApi\\wwwroot\\",
+      "BasePath": "_content/MusicApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\mycode\\gitee\\music-website\\MusicSite\\MusicApi\\wwwroot\\flowdata.json",
+      "SourceId": "MusicApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\mycode\\gitee\\music-website\\MusicSite\\MusicApi\\wwwroot\\",
+      "BasePath": "_content/MusicApi",
+      "RelativePath": "flowdata.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\flowdata.json"
+    },
+    {
+      "Identity": "D:\\mycode\\gitee\\music-website\\MusicSite\\MusicApi\\wwwroot\\swg-login.html",
+      "SourceId": "MusicApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\mycode\\gitee\\music-website\\MusicSite\\MusicApi\\wwwroot\\",
+      "BasePath": "_content/MusicApi",
+      "RelativePath": "swg-login.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\swg-login.html"
+    }
+  ]
+}

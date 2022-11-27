@@ -1,0 +1,17 @@
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\bin\Debug\net6.0\Framework.Mapper.deps.json
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\bin\Debug\net6.0\Framework.Mapper.dll
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\bin\Debug\net6.0\Framework.Mapper.pdb
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\bin\Debug\net6.0\Framework.Models.dll
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\bin\Debug\net6.0\Framework.Utility.dll
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\bin\Debug\net6.0\Framework.Models.pdb
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\bin\Debug\net6.0\Framework.Utility.pdb
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\obj\Debug\net6.0\Framework.Mapper.csproj.AssemblyReference.cache
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\obj\Debug\net6.0\Framework.Mapper.GeneratedMSBuildEditorConfig.editorconfig
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\obj\Debug\net6.0\Framework.Mapper.AssemblyInfoInputs.cache
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\obj\Debug\net6.0\Framework.Mapper.AssemblyInfo.cs
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\obj\Debug\net6.0\Framework.Mapper.csproj.CoreCompileInputs.cache
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\obj\Debug\net6.0\Framework.Mapper.csproj.CopyComplete
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\obj\Debug\net6.0\Framework.Mapper.dll
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\obj\Debug\net6.0\refint\Framework.Mapper.dll
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\obj\Debug\net6.0\Framework.Mapper.pdb
+D:\mycode\gitee\music-website\MusicSite\Framework.Mapper\obj\Debug\net6.0\ref\Framework.Mapper.dll

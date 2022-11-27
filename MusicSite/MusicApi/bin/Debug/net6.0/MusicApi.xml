@@ -1,0 +1,368 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MusicApi</name>
+    </assembly>
+    <members>
+        <member name="T:MusicApi.Attributes.PreventDoublePostAttribute">
+            <summary>
+            拦截器 实现指定时间访问次数
+            </summary>
+        </member>
+        <member name="M:MusicApi.Controllers.AccountController.SwgLogin(Framework.Utility.ViewModels.SwaggerLoginRequest)">
+            <summary>
+            swagger登录
+            </summary>
+            <param name="loginRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.BannerController.GetAllBanner">
+            <summary>
+            获取Banner图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.CollectController.AddCollection(Framework.Models.Request.CollectRequest)">
+            <summary>
+            添加收藏的歌曲
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.CollectController.DelCollection(System.Int32,System.Int32)">
+            <summary>
+            取消收藏的歌曲
+            </summary>
+            <param name="userId"></param>
+            <param name="songId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.CollectController.ExistSongId(Framework.Models.Request.CollectRequest)">
+            <summary>
+            是否收藏歌曲
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.CollectController.CollectionOfUser(System.Int32)">
+            <summary>
+            返回的指定用户 ID 收藏的列表
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.CommentController.AddComment(Framework.Models.Request.CommentRequest)">
+            <summary>
+             新增评论
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.CommentController.DelComment(System.Int32)">
+            <summary>
+             删除评论
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.CommentController.CommentOfSongId(System.Int32)">
+            <summary>
+            获得指定歌曲 ID 的评论列表
+            </summary>
+            <param name="songId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.CommentController.CommentOfSongListId(System.Int32)">
+            <summary>
+            获得指定歌单 ID 的评论列表
+            </summary>
+            <param name="songListId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.CommentController.CommentOfLike(Framework.Models.Request.CommentRequest)">
+            <summary>
+            点赞
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ConsumerController.AddUser(Framework.Models.Request.ConsumerRequest)">
+            <summary>
+             用户注册
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ConsumerController.UserLogin(Framework.Models.Request.ConsumerRequest)">
+            <summary>
+             登录判断
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ConsumerController.AllUser">
+            <summary>
+            返回所有用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ConsumerController.UserOfId(System.Int32)">
+            <summary>
+            返回指定 ID 的用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ConsumerController.DelUser(System.Int32)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ConsumerController.UpdateUser(Framework.Models.Request.ConsumerRequest)">
+            <summary>
+            更新用户信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ConsumerController.UpdateUserPwd(Framework.Models.Request.ConsumerRequest)">
+            <summary>
+            更新用户密码
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ConsumerController.UpdateUserPic(Microsoft.AspNetCore.Http.IFormCollection,System.Int32)">
+            <summary>
+            更新用户头像
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ListSongController.AddListSong(Framework.Models.Request.ListSongRequest)">
+            <summary>
+            给歌单添加歌曲
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ListSongController.DelListSong(System.Int32)">
+            <summary>
+            删除歌单里的歌曲
+            </summary>
+            <param name="songId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ListSongController.ListSongOfSongId(System.Int32)">
+            <summary>
+            返回歌单里指定歌单 ID 的歌曲
+            </summary>
+            <param name="songListId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.ListSongController.UpdateListSongMsg(Framework.Models.Request.ListSongRequest)">
+            <summary>
+            更新歌单里面的歌曲信息
+            </summary>
+            <param name="songListId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.RankListController.AddRank(Framework.Models.Request.RankListRequest)">
+            <summary>
+            提交评分获取指定歌单的评分
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.RankListController.RankOfSongListId(System.Int32)">
+            <summary>
+            获取指定歌单的评分
+            </summary>
+            <param name="songListId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SingerController.AddSinger(Framework.Models.Request.SingerRequest)">
+            <summary>
+            添加歌手
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SingerController.DelSinger(System.Int32)">
+            <summary>
+            删除歌手
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SingerController.AllSinger">
+            <summary>
+            返回所有歌手
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SingerController.SingerOfName(System.String)">
+            <summary>
+            根据歌手名查找歌手
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SingerController.SingerOfSex(System.Int32)">
+            <summary>
+            根据歌手性别查找歌手
+            </summary>
+            <param name="sex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SingerController.UpdateSinger(Framework.Models.Request.SingerRequest)">
+            <summary>
+            更新歌手信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SingerController.UpdateSingerPic(Microsoft.AspNetCore.Http.IFormCollection,System.Int32)">
+            <summary>
+            更新歌手头像
+            </summary>
+            <param name="formCollection"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongController.AddSong(Framework.Models.Request.SongRequest,Microsoft.AspNetCore.Http.IFormFileCollection)">
+            <summary>
+            添加歌曲
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongController.DelSong(System.Int32)">
+            <summary>
+            删除歌曲
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongController.AllSong">
+            <summary>
+            返回所有歌曲
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongController.SongOfId(System.Int32)">
+            <summary>
+            返回指定歌手ID的歌曲
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongController.SongOfSingerId(System.Int32)">
+            <summary>
+            返回指定歌手ID的歌曲
+            </summary>
+            <param name="singerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongController.SongOfSingerName(System.String)">
+            <summary>
+            返回指定歌手名的歌曲
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongController.UpdateSingerMsg(Framework.Models.Request.SongRequest)">
+            <summary>
+            更新歌曲信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongController.UpdateSingerPic(Microsoft.AspNetCore.Http.IFormCollection,System.Int32)">
+            <summary>
+            更新歌曲图片
+            </summary>
+            <param name="formCollection"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongController.UpdateSingerUrl(Microsoft.AspNetCore.Http.IFormCollection,System.Int32)">
+            <summary>
+            更新歌曲
+            </summary>
+            <param name="formCollection"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongListController.AddSongList(Framework.Models.Request.SongListRequest)">
+            <summary>
+            添加歌单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongListController.DelSongList(System.Int32)">
+            <summary>
+            删除歌单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongListController.AllSongList">
+            <summary>
+            返回所有歌单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongListController.SongListOfStyle(System.String)">
+            <summary>
+            返回指定类型的歌单
+            </summary>
+            <param name="style"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongListController.UpdateSongListMsg(Framework.Models.Request.SongListRequest)">
+            <summary>
+            更新歌单信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Controllers.SongListController.UpdateSongListPic(Microsoft.AspNetCore.Http.IFormCollection,System.Int32)">
+            <summary>
+            更新歌单图片
+            </summary>
+            <param name="formCollection"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MusicApi.Filter.AuthorizeFilterAttribute">
+            <summary>
+            验证token和记录日志
+            </summary>
+        </member>
+        <member name="F:MusicApi.Filter.AuthorizeFilterAttribute.IgnoreToken">
+            <summary>
+            忽略token的方法
+            </summary>
+        </member>
+        <member name="M:MusicApi.Filter.AuthorizeFilterAttribute.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
+            <summary>
+            异步接口日志
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MusicApi.Middleware.SwaggerAuthMiddleware.IsLocalRequest(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            判断是不是本地访问
+            本地不用swagger拦截
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

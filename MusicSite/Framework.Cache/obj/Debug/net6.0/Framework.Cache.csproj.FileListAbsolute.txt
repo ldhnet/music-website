@@ -1,0 +1,15 @@
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\bin\Debug\net6.0\Framework.Cache.deps.json
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\bin\Debug\net6.0\Framework.Cache.dll
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\bin\Debug\net6.0\Framework.Cache.pdb
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\bin\Debug\net6.0\Framework.Utility.dll
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\bin\Debug\net6.0\Framework.Utility.pdb
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\obj\Debug\net6.0\Framework.Cache.csproj.AssemblyReference.cache
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\obj\Debug\net6.0\Framework.Cache.GeneratedMSBuildEditorConfig.editorconfig
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\obj\Debug\net6.0\Framework.Cache.AssemblyInfoInputs.cache
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\obj\Debug\net6.0\Framework.Cache.AssemblyInfo.cs
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\obj\Debug\net6.0\Framework.Cache.csproj.CoreCompileInputs.cache
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\obj\Debug\net6.0\Framework.Cache.csproj.CopyComplete
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\obj\Debug\net6.0\Framework.Cache.dll
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\obj\Debug\net6.0\refint\Framework.Cache.dll
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\obj\Debug\net6.0\Framework.Cache.pdb
+D:\mycode\gitee\music-website\MusicSite\Framework.Cache\obj\Debug\net6.0\ref\Framework.Cache.dll
