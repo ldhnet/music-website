@@ -2,7 +2,16 @@
 
 #### 介绍
 Vue + NET6+ EFCore音乐网站  本开源项目是模仿GitHub某大佬的 Vue + SpringBoot + MyBatis 音乐网站 项目，尊重源作者
+#### 预览入口
 
+###### music-webapi
+[music-webapi预览入口](180.76.235.148:9010/)
+
+###### music-manage
+[music-manage预览入口](180.76.235.148:8086/)
+
+###### music-client
+[music-client预览入口](180.76.235.148:8087/)
 #### 软件架构
 软件架构说明
 
