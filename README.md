@@ -27,43 +27,43 @@ GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 
 > 前台截图预览
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/1.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/1.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/2.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/2.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/3.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/3.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/4.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/4.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/5.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/5.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/6.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/6.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/7.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/7.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/8.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/8.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/9.jpg?raw=true)
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/9.jpg)
 
 <br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/10.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/10.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/11.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/11.jpg)<br/>
 
 > 后台截图预览
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/12.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/12.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/13.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/13.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/14.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/14.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/15.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/15.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/16.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/16.jpg)<br/>
 
-![](https://github.com/ldhnet/music-website/blob/main/preview/17.jpg?raw=true)<br/>
+![](https://gitee.com/ldhnet/music-website/raw/master/preview-img/17.jpg)<br/>
 
 ## 项目功能
 
