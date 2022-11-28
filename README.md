@@ -149,7 +149,7 @@ npm run serve // 启动后台管理项目
 
 如果此项目对你确实有帮助，欢迎给我打赏一杯咖啡～😄
 
-<img src="https://gitee.com/ldhnet/vue3-ts-vant-h5/raw/master/src/assets/img/wxpay.png" height="300px"/>
+<img src="https://github.com/ldhnet/music-website/blob/main/preview/wxpay.png?raw=true" height="300px"/>
 
 <br/>
 
