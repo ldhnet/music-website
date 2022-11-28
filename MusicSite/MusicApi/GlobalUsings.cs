@@ -1,0 +1,13 @@
+﻿global using System.Collections.Generic; 
+global using System.Linq;
+global using System.Net.Http.Headers;
+global using System.Net.Http;
+global using System.Net;
+global using System.Text.Json;
+global using System.Threading.Tasks;
+global using System.Threading;
+global using System;
+global using Framework.Utility.Config;
+global using Framework.Utility.Helper;
+global using Framework.Utility.Extensions;
+global using Framework.Utility.ViewModels;
