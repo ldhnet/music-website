@@ -4,7 +4,8 @@
 Vue + NET6+ EFCore音乐网站  本开源项目是模仿 Yinhongwei 大佬的 Vue + SpringBoot + MyBatis 音乐网站 项目
  
 <br/>
-尊重源作者[Yin-hongwei](https://gitee.com/Yin-hongwei/)
+
+尊重源作者  [Yin-hongwei](https://gitee.com/Yin-hongwei/)
 
 #### 预览入口
 
