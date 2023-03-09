@@ -18,6 +18,7 @@ using MusicApi.Attributes;
 using MusicApi.Filter;
 using MusicApi.Middleware;
 using Lee.Mapper;
+using Autofac.Core;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -124,15 +125,18 @@ builder.Services.AddSwaggerGen(options => {
     options.IncludeXmlComments(filePath);
 });
 
-#endregion 
+#endregion
+
+//string connecttext = $"Filename={Directory.GetCurrentDirectory()}\\wwwroot\\tp_music.db";
+//builder.Services.AddDbContext<SqlLiteDBContext>(options => options.UseSqlite(connecttext));
 
 builder.Services.AddDbContextPool<MyDBContext>(options =>
 {
     //var connection = "server=127.0.0.1;userid=root;pwd=123456;port=3306;database=tp_music;Allow User Variables=True;sslMode=None";
-    var connection = "server=sh-cynosdbmysql-grp-brbuc2xq.sql.tencentcdb.com;userid=root;pwd=***;port=21952;database=tp_music;Allow User Variables=True;sslMode=None";
+    var connection = "server=127.0.0.1;userid=root;pwd=123456;port=3306;database=tp_music;Allow User Variables=True;sslMode=None";
     options.UseMySql(connection, ServerVersion.Create(8, 0, 22, ServerType.MySql));
 }, 60);
- 
+
 builder.Services.AddScoped<MyFilter>();
 builder.Services.AddScoped<MyDBContext>();
 #region Autofac

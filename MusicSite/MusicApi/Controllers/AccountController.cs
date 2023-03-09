@@ -50,6 +50,14 @@ namespace MusicApi.Controllers
         public dynamic SwgLogin([FromBody] SwaggerLoginRequest loginRequest)
         {
             _logger.LogInformation("api/Login/swgLogin");
+            var request = new AdminRequest()
+            {
+                username = loginRequest.name,
+                password=loginRequest.pwd
+            };
+            var result = _accountContract.AdminLogin(request);
+
+
             // 这里可以查询数据库等各种校验
             if (loginRequest?.name == "admin" && loginRequest?.pwd == "admin")
             {

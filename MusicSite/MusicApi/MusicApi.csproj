@@ -26,4 +26,8 @@
     <ProjectReference Include="..\Framework.Mapper\Framework.Mapper.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\database\" />
+  </ItemGroup>
+
 </Project>
