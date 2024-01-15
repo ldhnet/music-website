@@ -29,7 +29,7 @@ namespace Framework.EF.Context
                 if (string.IsNullOrEmpty(_connectionString))
                 {
                     // _connectionString = "server=.;uid=root;pwd=123456;port=3306;database=tp_music;Allow User Variables=True;sslMode=None";
-                    _connectionString = "server=sh-cynosdbmysql-grp-brbuc2xq.sql.tencentcdb.com;userid=root;pwd=***;port=21952;database=tp_music;Allow User Variables=True;sslMode=None";
+                    _connectionString = "server=.;userid=root;pwd=123456;port=3306;database=tp_music;Allow User Variables=True;sslMode=None";
                 }
 
                 optionsBuilder.UseMySql(_connectionString, ServerVersion.Create(8, 0, 22, ServerType.MySql));
