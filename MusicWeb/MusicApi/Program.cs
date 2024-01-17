@@ -9,11 +9,10 @@ using Microsoft.OpenApi.Models;
 using MusicApi.Filter;
 using Newtonsoft.Json.Serialization;
 using System.Reflection;
-using System.Text;
-using static Org.BouncyCastle.Math.EC.ECCurve;
+using System.Text; 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.UseUrls("http://*:9010");//切记要用* 而不要用localhost 否则docker 无法运行 会链接被重置错误
+builder.WebHost.UseUrls("http://*:9011");//切记要用* 而不要用localhost 否则docker 无法运行 会链接被重置错误
 
 GlobalContext.HostEnvironment = builder.Environment;
 builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -52,10 +51,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMemoryCache();
 
 builder.Services.AddAutoMapper(MapperRegister.MapType());
-
-builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(GlobalContext.HostEnvironment?.ContentRootPath + Path.DirectorySeparatorChar + "DataProtection"));
-Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);  // 注册Encoding
-
+ 
 #region Autofac
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
@@ -81,10 +77,12 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
         .PropertiesAutowired()  //属性注入
         .InstancePerLifetimeScope(); //保证生命周期基于请求 
 });
- 
+
 
 #endregion Autofac
 
+builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(GlobalContext.HostEnvironment?.ContentRootPath + Path.DirectorySeparatorChar + "DataProtection"));
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);  // 注册Encoding
 
 GlobalContext.SystemConfig = builder.Configuration.GetSection("SystemConfig").Get<SystemConfig>()!;
 GlobalContext.Services = builder.Services;
