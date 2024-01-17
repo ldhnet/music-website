@@ -1,7 +1,11 @@
 # music-website
 
 #### 介绍
-Vue + NET6+ EFCore音乐网站  本开源项目是模仿 Yinhongwei 大佬的 Vue + SpringBoot + MyBatis 音乐网站 项目
+
+本项目已升级至NET8
+
+Vue3.2 + NET8+ EFCore音乐网站  本开源项目是模仿 Yinhongwei 大佬的 Vue + SpringBoot + MyBatis 音乐网站 项目
+
 <br/>
 
 GitHub地址  [music-website](https://github.com/ldhnet/music-website)
@@ -10,7 +14,7 @@ GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 
 尊重源作者  [Yin-hongwei](https://gitee.com/Yin-hongwei/)
 
-#### 预览入口
+#### 预览入[由于购买的私有云服务器到期未续费，预览入口暂时关闭，生活不易，谢谢体谅]
 
 ###### music-webapi 
 [music-webapi预览入口](http://180.76.235.148:9010/swg-login.html)
@@ -84,17 +88,17 @@ GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 
 ### 后端
 
-**NET6 + EFCore + Mysql**
+**NET8 + EFCore + Mysql**
 
 ### 前端
 
-**Vue3.0 + TypeScript + Vue-Router + Vuex + Axios + ElementPlus + Echarts**
+**Vue3.2 + TypeScript + Vue-Router + Vuex + Axios + ElementPlus + Echarts**
 
 <br/>
 
 ## 开发环境
 
-JDK： dotnet-sdk-6.0.101-win-x64.exe
+JDK： dotnet-sdk-8.0.0-win-x64.exe
 
 mysql：mysql-8.0.22 （或者更高版本）
   
@@ -121,7 +125,11 @@ git clone https://gitee.com/ldhnet/music-website.git
 ### 3、修改配置文件
 
 1）创建数据库
-将 `music-website/sql` 文件夹中的 `tp_music.sql` 文件导入数据库。
+
+将 `music-website/sql` 文件夹中的
+   `music_sqlite.sql`对应 sqlite 数据库 。
+   `music_mysql.sql`对应 mysql 数据库 。
+   `music_sqlserver.sql`对应 sqlserver 数据库 。
  
 ### 4、启动项目
 
