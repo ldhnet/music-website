@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 80031
  Source Host           : localhost:3306
- Source Schema         : tp_music
+ Source Schema         : music_mysql
 
  Target Server Type    : MySQL
  Target Server Version : 80031
@@ -16,7 +16,27 @@
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+-- ----------------------------
+-- Table structure for Biz_Admin
+-- ----------------------------
+DROP TABLE IF EXISTS `Biz_Admin`;
+CREATE TABLE `Biz_Admin`  (
+  `Id` int unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Password` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Create_Time` datetime(0) NULL DEFAULT NULL,
+  `Create_By` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `Update_Time` datetime(0) NULL DEFAULT NULL,
+  `Update_By` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`Id`) USING BTREE,
+  UNIQUE INDEX `name_UNIQUE`(`Name`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
+-- ----------------------------
+-- Records of Biz_Admin
+-- ----------------------------
+INSERT INTO `Biz_Admin` VALUES (1, 'admin', '123', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO `Biz_Admin` VALUES (2, 'admin1', '565', '2022-11-21 17:33:47', 'admin', NULL, NULL);
   
 -- ----------------------------
 -- Table structure for Biz_Collect

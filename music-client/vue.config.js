@@ -5,11 +5,11 @@ module.exports = defineConfig({
     config.plugin('define').tap(definitions => {
       if (process.env.NODE_ENV === 'prod') {
         Object.assign(definitions[0]['process.env'], {
-          NODE_HOST: '"http://180.76.235.148:9010"',
+          NODE_HOST: '"http://localhost:9011"',
         });
       } else {
         Object.assign(definitions[0]['process.env'], {
-          NODE_HOST: '"http://localhost:9010"',
+          NODE_HOST: '"http://localhost:9011"',
         });
       } 
       return definitions;
