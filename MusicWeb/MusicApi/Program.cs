@@ -105,12 +105,14 @@ else
 string resource = Path.Combine(app.Environment.ContentRootPath, "wwwroot");
 FileHelper.CreateDirectory(resource);
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    RequestPath = "/wwwroot",
-    FileProvider = new PhysicalFileProvider(resource),
-    OnPrepareResponse = GlobalContext.SetCacheControl
-});
+app.UseStaticFiles();
+
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    RequestPath = "/wwwroot",
+//    FileProvider = new PhysicalFileProvider(resource),
+//    OnPrepareResponse = GlobalContext.SetCacheControl
+//});
 
 app.UseMiddleware(typeof(GlobalExceptionMiddleware));
 
