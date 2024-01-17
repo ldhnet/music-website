@@ -15,7 +15,8 @@
     "strictNullChecks": false,
     "baseUrl": ".",
     "types": [
-      "webpack-env"
+      "webpack-env",
+      "node"
     ],
     "paths": {
       "@/*": [
@@ -27,7 +28,7 @@
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ] 
   },
   "include": [
     "src/**/*.ts",

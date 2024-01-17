@@ -12,12 +12,12 @@
     </div>
     <el-table height="550px" border size="small" :data="tableData" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="40" align="center"></el-table-column>
-      <el-table-column prop="id" label="ID" width="50"></el-table-column>
-      <el-table-column prop="username" label="用户" width="80"></el-table-column>
-      <el-table-column prop="content" label="评论内容"></el-table-column>
+      <el-table-column prop="Id" label="ID" width="50"></el-table-column>
+      <el-table-column prop="UserName" label="用户" width="80"></el-table-column>
+      <el-table-column prop="Content" label="评论内容"></el-table-column>
       <el-table-column label="操作" width="100" align="center">
         <template v-slot="scope">
-          <el-button type="danger" @click="deleteRow(scope.row.id)">删除</el-button>
+          <el-button type="danger" @click="deleteRow(scope.row.Id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -73,14 +73,14 @@ export default defineComponent({
       }
 
       promise.then((res) => {
-        for (let item of (res as ResponseBody).data) {
-          getUsers(item.user_id, item);
+        for (let item of (res as ResponseBody).Data) {
+          getUsers(item.User_Id, item);
         }
       });
     }
     async function getUsers(id, item) {
       const result = (await HttpManager.getUserOfId(id)) as ResponseBody;
-      item.username = result.data[0].username;
+      item.UserName = result.Data[0].UserName;
       tableData.value.push(item);
       tempDate.value.push(item);
     }
@@ -95,11 +95,11 @@ export default defineComponent({
     async function confirm() {
       const result = (await HttpManager.deleteComment(idx.value)) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) getData();
+      if (result.Tag == 1) getData();
       delVisible.value = false;
     }
     function deleteRow(id) {

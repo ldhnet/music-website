@@ -42,11 +42,11 @@ export default defineComponent({
       let password = ruleForm.password;
       const result = (await HttpManager.getLoginStatus({username,password})) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) routerManager(RouterName.Info, { path: RouterName.Info });
+      if (result.Tag == 1) routerManager(RouterName.Info, { path: RouterName.Info });
     }
     return {
       nusicName,

@@ -102,12 +102,12 @@ else
     app.UseDeveloperExceptionPage();
 }
 
-string resource = Path.Combine(app.Environment.ContentRootPath, "Resource");
+string resource = Path.Combine(app.Environment.ContentRootPath, "wwwroot");
 FileHelper.CreateDirectory(resource);
 
 app.UseStaticFiles(new StaticFileOptions
 {
-    RequestPath = "/Resource",
+    RequestPath = "/wwwroot",
     FileProvider = new PhysicalFileProvider(resource),
     OnPrepareResponse = GlobalContext.SetCacheControl
 });

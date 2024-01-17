@@ -7,39 +7,39 @@
     </div>
     <el-table height="550px" border size="small" :data="data" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="40" align="center"></el-table-column>
-      <el-table-column label="ID" prop="id" width="50" align="center"></el-table-column>
+      <el-table-column label="ID" prop="Id" width="50" align="center"></el-table-column>
       <el-table-column label="歌单图片" width="110" align="center">
         <template v-slot="scope">
-          <img :src="attachImageUrl(scope.row.pic)" style="width: 80px"/>
-          <el-upload action :http-request="(params)=>uploadUrl(params,scope.row.id)" :show-file-list="false" :on-success="handleImgSuccess"
+          <img :src="attachImageUrl(scope.row.Pic)" style="width: 80px"/>
+          <el-upload action :http-request="(params)=>uploadUrl(params,scope.row.Id)" :show-file-list="false" :on-success="handleImgSuccess"
                      :before-upload="beforeImgUpload">
             <el-button>更新图片</el-button>
           </el-upload>
         </template>
       </el-table-column>
-      <el-table-column prop="title" label="标题" width="200"></el-table-column>
+      <el-table-column prop="Title" label="标题" width="200"></el-table-column>
       <el-table-column label="简介">
         <template v-slot="scope">
           <p style="height: 100px; overflow: scroll">
-            {{ scope.row.introduction }}
+            {{ scope.row.Introduction }}
           </p>
         </template>
       </el-table-column>
-      <el-table-column label="风格" prop="style" width="100"></el-table-column>
+      <el-table-column label="风格" prop="Style" width="100"></el-table-column>
       <el-table-column label="内容" width="90" align="center">
         <template v-slot="scope">
-          <el-button @click="goContentPage(scope.row.id)">内容</el-button>
+          <el-button @click="goContentPage(scope.row.Id)">内容</el-button>
         </template>
       </el-table-column>
       <el-table-column label="评论" width="90" align="center">
         <template v-slot="scope">
-          <el-button @click="goCommentPage(scope.row.id)">评论</el-button>
+          <el-button @click="goCommentPage(scope.row.Id)">评论</el-button>
         </template>
       </el-table-column>
       <el-table-column label="操作" width="160" align="center">
         <template v-slot="scope">
           <el-button @click="editRow(scope.row)">编辑</el-button>
-          <el-button type="danger" @click="deleteRow(scope.row.id)">删除</el-button>
+          <el-button type="danger" @click="deleteRow(scope.row.Id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -58,14 +58,14 @@
   <!--添加歌单-->
   <el-dialog title="添加歌单" v-model="centerDialogVisible">
     <el-form label-width="70px" :model="registerForm">
-      <el-form-item label="歌单名" prop="title">
-        <el-input v-model="registerForm.title"></el-input>
+      <el-form-item label="歌单名" prop="Title">
+        <el-input v-model="registerForm.Title"></el-input>
       </el-form-item>
-      <el-form-item label="歌单介绍" prop="introduction">
-        <el-input v-model="registerForm.introduction"></el-input>
+      <el-form-item label="歌单介绍" prop="Introduction">
+        <el-input v-model="registerForm.Introduction"></el-input>
       </el-form-item>
-      <el-form-item label="风格" prop="style">
-        <el-input v-model="registerForm.style"></el-input>
+      <el-form-item label="风格" prop="Style">
+        <el-input v-model="registerForm.Style"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
@@ -80,13 +80,13 @@
   <el-dialog title="编辑" v-model="editVisible">
     <el-form :model="editForm">
       <el-form-item label="标题">
-        <el-input v-model="editForm.title"></el-input>
+        <el-input v-model="editForm.Title"></el-input>
       </el-form-item>
       <el-form-item label="简介">
-        <el-input type="textarea" v-model="editForm.introduction"></el-input>
+        <el-input type="textarea" v-model="editForm.Introduction"></el-input>
       </el-form-item>
       <el-form-item label="风格">
-        <el-input v-model="editForm.style"></el-input>
+        <el-input v-model="editForm.Style"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
@@ -147,8 +147,8 @@ export default defineComponent({
       tableData.value = [];
       tempDate.value = [];
       const result = (await HttpManager.getSongList()) as ResponseBody;
-      tableData.value = result.data;
-      tempDate.value = result.data;
+      tableData.value = result.Data;
+      tempDate.value = result.Data;
       currentPage.value = 1;
     }
 
@@ -172,10 +172,10 @@ export default defineComponent({
     // 更新图片
     function handleImgSuccess(response, file) {
       (proxy as any).$message({
-        message: response.data.message,
-        type: response.data.type,
+        message: response.Data.Description,
+        type: response.Data.Tag,
       });
-      if (response.data.success) getData();
+      if (response.Data.Tag == 1) getData();
     }
 
     /**
@@ -216,26 +216,26 @@ export default defineComponent({
      */
     const centerDialogVisible = ref(false);
     const registerForm = reactive({
-      title: "",
-      introduction: "",
-      style: "",
+      Title: "",
+      Introduction: "",
+      Style: "",
     });
 
     async function addsongList() {
-      let title = registerForm.title;
-      let introduction = registerForm.introduction;
-      let style = registerForm.style;
+      let title = registerForm.Title;
+      let introduction = registerForm.Introduction;
+      let style = registerForm.Style;
       const result = (await HttpManager.setSongList({title, introduction, style})) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) {
+      if (result.Tag == 1) {
         getData();
-        registerForm.title = "";
-        registerForm.introduction = "";
-        registerForm.style = "";
+        registerForm.Title = "";
+        registerForm.Introduction = "";
+        registerForm.Style = "";
       }
       centerDialogVisible.value = false;
     }
@@ -245,37 +245,37 @@ export default defineComponent({
      */
     const editVisible = ref(false);
     const editForm = reactive({
-      id: "",
-      title: "",
-      pic: "",
-      introduction: "",
-      style: "",
+      Id: "",
+      Title: "",
+      Pic: "",
+      Introduction: "",
+      Style: "",
     });
 
     function editRow(row) {
-      idx.value = row.id;
-      editForm.id = row.id;
-      editForm.title = row.title;
-      editForm.pic = row.pic;
-      editForm.introduction = row.introduction;
-      editForm.style = row.style;
+      idx.value = row.Id;
+      editForm.Id = row.Id;
+      editForm.Title = row.Title;
+      editForm.Pic = row.Pic;
+      editForm.Introduction = row.Introduction;
+      editForm.Style = row.Style;
       editVisible.value = true;
     }
 
     async function saveEdit() {
 
-      let id = editForm.id;
-      let title = editForm.title;
-      let introduction = editForm.introduction;
-      let style = editForm.style;
+      let id = editForm.Id;
+      let title = editForm.Title;
+      let introduction = editForm.Introduction;
+      let style = editForm.Style;
 
       const result = (await HttpManager.updateSongListMsg({id, title, introduction, style})) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) getData();
+      if (result.Tag == 1) getData();
       editVisible.value = false;
     }
 
@@ -289,10 +289,10 @@ export default defineComponent({
     async function confirm() {
       const result = await HttpManager.deleteSongList(idx.value) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
-      if (result.success) getData();
+      if (result.Tag == 1) getData();
       delVisible.value = false;
     }
 

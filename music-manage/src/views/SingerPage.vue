@@ -7,33 +7,33 @@
     </div>
     <el-table height="700px" border size="small" :data="data" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="40" align="center"></el-table-column>
-      <el-table-column label="ID" prop="id" width="50" align="center"></el-table-column>
+      <el-table-column label="ID" prop="Id" width="50" align="center"></el-table-column>
       <el-table-column label="歌手图片" prop="pic" width="110" align="center">
         <template v-slot="scope">
           <div class="singer-img">
-            <img :src="attachImageUrl(scope.row.pic)" style="width: 100%" />
+            <img :src="attachImageUrl(scope.row.Pic)" style="width: 100%" />
           </div>
-          <el-upload action :http-request="(params)=>uploadUrl(params,scope.row.id)" :show-file-list="false" :on-success="handleImgSuccess" :before-upload="beforeImgUpload">
+          <el-upload action :http-request="(params)=>uploadUrl(params,scope.row.Id)" :show-file-list="false" :on-success="handleImgSuccess" :before-upload="beforeImgUpload">
             <el-button>更新图片</el-button>
           </el-upload>
         </template>
       </el-table-column>
-      <el-table-column label="歌手" prop="name" width="120" align="center"></el-table-column>
-      <el-table-column label="性别" prop="sex" width="60" align="center">
+      <el-table-column label="歌手" prop="Name" width="120" align="center"></el-table-column>
+      <el-table-column label="性别" prop="Sex" width="60" align="center">
         <template v-slot="scope">
-          <div>{{ changeSex(scope.row.sex) }}</div>
+          <div>{{ changeSex(scope.row.Sex) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="出生" prop="birth" width="120" align="center">
+      <el-table-column label="出生" prop="Birth" width="120" align="center">
         <template v-slot="scope">
-          <div>{{ getBirth(scope.row.birth) }}</div>
+          <div>{{ getBirth(scope.row.Birth) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="地区" prop="location" width="100" align="center"></el-table-column>
-      <el-table-column label="简介" prop="introduction">
+      <el-table-column label="地区" prop="Location" width="100" align="center"></el-table-column>
+      <el-table-column label="简介" prop="Introduction">
         <template v-slot="scope">
           <p style="height: 100px; overflow: scroll">
-            {{ scope.row.introduction }}
+            {{ scope.row.Introduction }}
           </p>
         </template>
       </el-table-column>
@@ -45,7 +45,7 @@
       <el-table-column label="操作" width="160" align="center">
         <template v-slot="scope">
           <el-button @click="editRow(scope.row)">编辑</el-button>
-          <el-button type="danger" @click="deleteRow(scope.row.id)">删除</el-button>
+          <el-button type="danger" @click="deleteRow(scope.row.Id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -64,11 +64,11 @@
   <!-- 添加 -->
   <el-dialog title="添加歌手" v-model="centerDialogVisible">
     <el-form label-width="80px" :model="registerForm" :rules="singerRule">
-      <el-form-item label="歌手名" prop="name">
-        <el-input v-model="registerForm.name"></el-input>
+      <el-form-item label="歌手名" prop="Name">
+        <el-input v-model="registerForm.Name"></el-input>
       </el-form-item>
-      <el-form-item label="性别" prop="sex">
-        <el-radio-group v-model="registerForm.sex">
+      <el-form-item label="性别" prop="Sex">
+        <el-radio-group v-model="registerForm.Sex">
           <el-radio :label="0">女</el-radio>
           <el-radio :label="1">男</el-radio>
           <el-radio :label="2">保密</el-radio>
@@ -76,14 +76,14 @@
           <el-radio :label="3">不明</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="故乡" prop="location">
-        <el-input v-model="registerForm.location"></el-input>
+      <el-form-item label="故乡" prop="Location">
+        <el-input v-model="registerForm.Location"></el-input>
       </el-form-item>
-      <el-form-item label="出生日期" prop="birth">
-        <el-date-picker type="date" v-model="registerForm.birth"></el-date-picker>
+      <el-form-item label="出生日期" prop="Birth">
+        <el-date-picker type="date" v-model="registerForm.Birth"></el-date-picker>
       </el-form-item>
-      <el-form-item label="歌手介绍" prop="introduction">
-        <el-input type="textarea" v-model="registerForm.introduction"></el-input>
+      <el-form-item label="歌手介绍" prop="Introduction">
+        <el-input type="textarea" v-model="registerForm.Introduction"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
@@ -97,11 +97,11 @@
   <!-- 编辑弹出框 -->
   <el-dialog title="编辑" v-model="editVisible">
     <el-form label-width="60px" :model="editForm" :rules="singerRule">
-      <el-form-item label="歌手" prop="name">
-        <el-input v-model="editForm.name"></el-input>
+      <el-form-item label="歌手" prop="Name">
+        <el-input v-model="editForm.Name"></el-input>
       </el-form-item>
-      <el-form-item label="性别" prop="sex">
-        <el-radio-group v-model="editForm.sex">
+      <el-form-item label="性别" prop="Sex">
+        <el-radio-group v-model="editForm.Sex">
           <el-radio :label="0">女</el-radio>
           <el-radio :label="1">男</el-radio>
           <el-radio :label="2">保密</el-radio>
@@ -109,14 +109,14 @@
           <el-radio :label="3">不明</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="出生" prop="birth">
-        <el-date-picker type="date" v-model="editForm.birth"></el-date-picker>
+      <el-form-item label="出生" prop="Birth">
+        <el-date-picker type="date" v-model="editForm.Birth"></el-date-picker>
       </el-form-item>
-      <el-form-item label="地区" prop="location">
-        <el-input v-model="editForm.location"></el-input>
+      <el-form-item label="地区" prop="Location">
+        <el-input v-model="editForm.Location"></el-input>
       </el-form-item>
-      <el-form-item label="简介" prop="introduction">
-        <el-input type="textarea" v-model="editForm.introduction"></el-input>
+      <el-form-item label="简介" prop="Introduction">
+        <el-input type="textarea" v-model="editForm.Introduction"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
@@ -177,8 +177,8 @@ export default defineComponent({
       tableData.value = [];
       tempDate.value = []; 
       const result = await HttpManager.getAllSinger();
-      tableData.value = result.data;
-      tempDate.value = result.data;
+      tableData.value = result.Data;
+      tempDate.value = result.Data;
       currentPage.value = 1;
     }
     // 获取当前页
@@ -203,7 +203,7 @@ export default defineComponent({
       proxy.$store.commit("setBreadcrumbList", breadcrumbList);
       routerManager(RouterName.Song, {
         path: RouterName.Song,
-        query: { id: row.id, name: row.name },
+        query: { id: row.Id, name: row.Name },
       });
     }
 
@@ -212,39 +212,39 @@ export default defineComponent({
      */
     const centerDialogVisible = ref(false);
     const registerForm = reactive({
-      name: "",
-      sex: "",
-      birth: new Date(),
-      location: "",
-      introduction: "",
+      Name: "",
+      Sex: "",
+      Birth: new Date(),
+      Location: "",
+      Introduction: "",
     });
     const singerRule = reactive({
-      name: [{ required: true, trigger: "change" }],
-      sex: [{ required: true, trigger: "change" }],
+      Name: [{ required: true, trigger: "change" }],
+      Sex: [{ required: true, trigger: "change" }],
     });
 
     async function addsinger() {
-      let datetime = getBirth(registerForm.birth);
+      let datetime = getBirth(registerForm.Birth);
 
-      let name = registerForm.name;
-      let sex = registerForm.sex;
+      let name = registerForm.Name;
+      let sex = registerForm.Sex;
       let birth = datetime;
-      let location = registerForm.location;
-      let introduction = registerForm.introduction;
+      let location = registerForm.Location;
+      let introduction = registerForm.Introduction;
 
       const result = (await HttpManager.setSinger({name,sex,birth,location,introduction})) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) {
+      if (result.Tag == 1) {
         getData();
-        registerForm.birth = new Date();
-        registerForm.name = "";
-        registerForm.sex = "";
-        registerForm.location = "";
-        registerForm.introduction = "";
+        registerForm.Birth = new Date();
+        registerForm.Name = "";
+        registerForm.Sex = "";
+        registerForm.Location = "";
+        registerForm.Introduction = "";
       }
       centerDialogVisible.value = false;
     }
@@ -254,43 +254,43 @@ export default defineComponent({
      */
     const editVisible = ref(false);
     const editForm = reactive({
-      id: "",
-      name: "",
-      sex: "",
-      pic: "",
-      birth: new Date(),
-      location: "",
-      introduction: "",
+      Id: "",
+      Name: "",
+      Sex: "",
+      Pic: "",
+      Birth: new Date(),
+      Location: "",
+      Introduction: "",
     });
 
     function editRow(row) {
       editVisible.value = true;
-      editForm.id = row.id;
-      editForm.name = row.name;
-      editForm.sex = row.sex;
-      editForm.pic = row.pic;
-      editForm.birth = row.birth;
-      editForm.location = row.location;
-      editForm.introduction = row.introduction;
+      editForm.Id = row.Id;
+      editForm.Name = row.Name;
+      editForm.Sex = row.Sex;
+      editForm.Pic = row.Pic;
+      editForm.Birth = row.Birth;
+      editForm.Location = row.Location;
+      editForm.Introduction = row.Introduction;
     }
     async function saveEdit() {
       try {
-        let datetime = getBirth(new Date(editForm.birth));
+        let datetime = getBirth(new Date(editForm.Birth));
 
-        let id = editForm.id;
-        let name = editForm.name;
-        let sex = editForm.sex;
+        let id = editForm.Id;
+        let name = editForm.Name;
+        let sex = editForm.Sex;
         let birth = datetime;
-        let location = editForm.location;
-        let introduction = editForm.introduction;
+        let location = editForm.Location;
+        let introduction = editForm.Introduction;
 
         const result = (await HttpManager.updateSingerMsg({id,name,sex,birth,location,introduction})) as ResponseBody;
         (proxy as any).$message({
-          message: result.message,
-          type: result.type,
+          message: result.Description,
+          type: result.Tag,
         });
 
-        if (result.success) getData();
+        if (result.Tag == 1) getData();
         editVisible.value = false;
       } catch (error) {
         console.error(error);
@@ -313,10 +313,10 @@ export default defineComponent({
       // console.log('file=======',file);
       // console.log('result=======',JSON.stringify(response));
       (proxy as any).$message({
-        message: response.data.message,
-        type: response.data.type,
+        message: response.Data.Description,
+        type: response.Data.Tag,
       });
-      if (response.data.success) {
+      if (response.Data.Tag == 1) {
         getData();
       }
     }
@@ -331,11 +331,11 @@ export default defineComponent({
     async function confirm() {
       const result = (await HttpManager.deleteSinger(idx.value)) as ResponseBody; 
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) getData();
+      if (result.Tag == 1) getData();
       delVisible.value = false;
     }
     function deleteRow(id) {

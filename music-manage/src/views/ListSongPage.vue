@@ -13,11 +13,11 @@
     </div>
     <el-table height="550px" border size="small" :data="tableData" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="40" align="center"></el-table-column>
-      <el-table-column label="ID" prop="id" width="50" align="center"></el-table-column>
-      <el-table-column label="歌手-歌曲" prop="name"></el-table-column>
+      <el-table-column label="ID" prop="Id" width="50" align="center"></el-table-column>
+      <el-table-column label="歌手-歌曲" prop="Name"></el-table-column>
       <el-table-column label="操作" width="90" align="center">
         <template v-slot="scope">
-          <el-button type="danger" @click="deleteRow(scope.row.id)">删除</el-button>
+          <el-button type="danger" @click="deleteRow(scope.row.Id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -84,10 +84,10 @@ export default defineComponent({
       tableData.value = [];
       tempDate.value = [];
       const result = (await HttpManager.getListSongOfSongId(proxy.$route.query.id)) as ResponseBody;
-      for (let item of result.data) {
-        const result = await HttpManager.getSongOfId(item.song_id) as ResponseBody;
-        tableData.value.push(result.data[0]);
-        tempDate.value.push(result.data[0]);
+      for (let item of result.Data) {
+        const result = await HttpManager.getSongOfId(item.Song_Id) as ResponseBody;
+        tableData.value.push(result.Data[0]);
+        tempDate.value.push(result.Data[0]);
       }
     }
 
@@ -105,8 +105,8 @@ export default defineComponent({
       const id = `${registerForm.singerName}-${registerForm.songName}`;
       const result = (await HttpManager.getSongOfSingerName(id)) as ResponseBody;
 
-      if (result.success) {
-        addSong(result.data[0].id);
+      if (result.Tag ==1) {
+        addSong(result.Data[0].Id);
       }
     }
     async function addSong(id) {
@@ -115,11 +115,11 @@ export default defineComponent({
 
       const result = (await HttpManager.setListSong({songId,songListId})) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) getData();
+      if (result.Tag == 1) getData();
       centerDialogVisible.value = false;
     }
 
@@ -133,11 +133,11 @@ export default defineComponent({
     async function confirm() {
       const result = await HttpManager.deleteListSong(idx.value) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) getData();
+      if (result.Tag == 1) getData();
       delVisible.value = false;
     }
     function deleteRow(id) {

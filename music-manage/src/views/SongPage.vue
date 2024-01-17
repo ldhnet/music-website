@@ -13,25 +13,25 @@
     </div>
     <el-table height="550px" border size="small" :data="data" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="40"></el-table-column>
-      <el-table-column label="ID" prop="id" width="50" align="center"></el-table-column>
+      <el-table-column label="Id" prop="Id" width="50" align="center"></el-table-column>
       <el-table-column label="歌手图片" width="110" align="center">
         <template v-slot="scope">
           <div style="width: 80px; height: 80px; overflow: hidden">
-            <img :src="attachImageUrl(scope.row.pic)" style="width: 100%" />
+            <img :src="attachImageUrl(scope.row.Pic)" style="width: 100%" />
           </div>
           <div class="play" @click="setSongUrl(scope.row)">
             <svg class="icon" aria-hidden="true">
-              <use :xlink:href="toggle === scope.row.name ? playIcon : BOFANG"></use>
+              <use :xlink:href="toggle === scope.row.Name ? playIcon : BOFANG"></use>
             </svg>
           </div>
         </template>
       </el-table-column>
-      <el-table-column label="歌名" prop="name" width="150"></el-table-column>
-      <el-table-column label="专辑" prop="introduction" width="150"></el-table-column>
+      <el-table-column label="歌名" prop="Name" width="150"></el-table-column>
+      <el-table-column label="专辑" prop="Introduction" width="150"></el-table-column>
       <el-table-column label="歌词" align="center">
         <template v-slot="scope">
           <ul style="height: 100px; overflow: scroll">
-            <li v-for="(item, index) in parseLyric(scope.row.lyric)" :key="index">
+            <li v-for="(item, index) in parseLyric(scope.row.Lyric)" :key="index">
               {{ item }}
             </li>
           </ul>
@@ -39,24 +39,24 @@
       </el-table-column>
       <el-table-column label="资源更新" width="120" align="center">
         <template v-slot="scope">
-          <el-upload action :http-request="(params)=>updateSongImg(params,scope.row.id)"  :show-file-list="false" :on-success="handleImgSuccess" :before-upload="beforeImgUpload">
+          <el-upload action :http-request="(params)=>updateSongImg(params,scope.row.Id)"  :show-file-list="false" :on-success="handleImgSuccess" :before-upload="beforeImgUpload">
             <el-button>更新图片</el-button>
           </el-upload>
           <br />
-          <el-upload action :http-request="(params)=>updateSongUrl(params,scope.row.id)"  :show-file-list="false" :on-success="handleSongSuccess" :before-upload="beforeSongUpload">
+          <el-upload action :http-request="(params)=>updateSongUrl(params,scope.row.Id)"  :show-file-list="false" :on-success="handleSongSuccess" :before-upload="beforeSongUpload">
             <el-button>更新歌曲</el-button>
           </el-upload>
         </template>
       </el-table-column>
       <el-table-column label="评论" width="90" align="center">
         <template v-slot="scope">
-          <el-button @click="goCommentPage(scope.row.id)">评论</el-button>
+          <el-button @click="goCommentPage(scope.row.Id)">评论</el-button>
         </template>
       </el-table-column>
       <el-table-column label="操作" width="160" align="center">
         <template v-slot="scope">
           <el-button @click="editRow(scope.row)">编辑</el-button>
-          <el-button type="danger" @click="deleteRow(scope.row.id)">删除</el-button>
+          <el-button type="danger" @click="deleteRow(scope.row.Id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -76,13 +76,13 @@
   <el-dialog title="添加歌曲" v-model="centerDialogVisible">
     <el-form id="add-song" label-width="120px" :model="registerForm">
       <el-form-item label="歌曲名">
-        <el-input type="text" name="name" v-model="registerForm.name"></el-input>
+        <el-input type="text" name="Name" v-model="registerForm.Name"></el-input>
       </el-form-item>
       <el-form-item label="专辑">
-        <el-input type="text" name="introduction" v-model="registerForm.introduction"></el-input>
+        <el-input type="text" name="Introduction" v-model="registerForm.Introduction"></el-input>
       </el-form-item>
       <el-form-item label="歌词">
-        <el-input type="textarea" name="lyric" v-model="registerForm.lyric"></el-input>
+        <el-input type="textarea" name="Lyric" v-model="registerForm.Lyric"></el-input>
       </el-form-item>
       <el-form-item label="歌曲上传">
         <input type="file" name="file" />
@@ -100,13 +100,13 @@
   <el-dialog title="编辑" v-model="editVisible">
     <el-form :model="editForm">
       <el-form-item label="歌曲">
-        <el-input v-model="editForm.name"></el-input>
+        <el-input v-model="editForm.Name"></el-input>
       </el-form-item>
       <el-form-item label="简介">
-        <el-input v-model="editForm.introduction"></el-input>
+        <el-input v-model="editForm.Introduction"></el-input>
       </el-form-item>
       <el-form-item label="歌词">
-        <el-input type="textarea" v-model="editForm.lyric"></el-input>
+        <el-input type="textarea" v-model="editForm.Lyric"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
@@ -181,8 +181,8 @@ export default defineComponent({
       tableData.value = [];
       tempDate.value = [];
       const result = (await HttpManager.getSongOfSingerId(singerId.value)) as ResponseBody;
-      tableData.value = result.data;
-      tempDate.value = result.data;
+      tableData.value = result.Data;
+      tempDate.value = result.Data;
       currentPage.value = 1;
     }
     function setSongUrl(row) {
@@ -305,43 +305,43 @@ export default defineComponent({
      */
     const editVisible = ref(false);
     const editForm = reactive({
-      id: "",
-      singerId: "",
-      name: "",
-      introduction: "", 
-      pic: "",
-      lyric: "",
-      url: "",
-      createTime: "",
-      updateTime: "",
+      Id: "",
+      SingerId: "",
+      Name: "",
+      Introduction: "", 
+      Pic: "",
+      Lyric: "",
+      Url: "",
+      Create_Time: "",
+      Update_Time: "",
     });
 
     function editRow(row) {
       
-      idx.value = row.id;
-      editForm.id = row.id;
-      editForm.singerId = row.singerId;
-      editForm.name = row.name;
-      editForm.introduction = row.introduction;
-      editForm.createTime = row.createTime;
-      editForm.updateTime = row.updateTime;
-      editForm.pic = row.pic;
-      editForm.lyric = row.lyric;
-      editForm.url = row.url;
+      idx.value = row.Id;
+      editForm.Id = row.Id;
+      editForm.SingerId = row.SingerId;
+      editForm.Name = row.Name;
+      editForm.Introduction = row.Introduction;
+      editForm.Create_Time = row.Create_Time;
+      editForm.Update_Time = row.Update_Time;
+      editForm.Pic = row.Pic;
+      editForm.Lyric = row.Lyric;
+      editForm.Url = row.Url;
       editVisible.value = true;
     }
     async function saveEdit() {
-      let id = editForm.id;
+      let id = editForm.Id;
       let singer_id =  singerId.value;
-      let name = editForm.name;
-      let introduction = editForm.introduction;
-      let lyric = editForm.lyric;
+      let name = editForm.Name;
+      let introduction = editForm.Introduction;
+      let lyric = editForm.Lyric;
       const result = (await HttpManager.updateSongMsg({id,singer_id,name,introduction,lyric})) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
-      if (result.success) getData();
+      if (result.Tag == 1) getData();
       editVisible.value = false;
     }
 
@@ -355,10 +355,10 @@ export default defineComponent({
     async function confirm() {
       const result = (await HttpManager.deleteSong(idx.value)) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
-      if (result.success) getData();
+      if (result.Tag == 1) getData();
       delVisible.value = false;
     }
     function deleteRow(id) {

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 namespace HSharp.Contracts.MusicContracts
 {
     public interface ISongContract
-    {
+    { 
         Task<TData> AddSong(SongRequest dto, IFormFileCollection mpfile);
 
         Task<TData> UpdateSongMsg(SongRequest dto);

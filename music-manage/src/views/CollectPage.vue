@@ -12,10 +12,10 @@
     </div>
     <el-table height="550px" border size="small" :data="tableData" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="40" align="center"></el-table-column>
-      <el-table-column prop="name" label="歌手-歌曲"></el-table-column>
+      <el-table-column prop="Name" label="歌手-歌曲"></el-table-column>
       <el-table-column label="操作" width="90" align="center">
         <template v-slot="scope">
-          <el-button type="danger" @click="deleteRow(scope.row.id)">删除</el-button>
+          <el-button type="danger" @click="deleteRow(scope.row.Id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -30,14 +30,7 @@ import { defineComponent, getCurrentInstance, watch, ref, computed } from "vue";
 import { useStore } from "vuex";
 import { HttpManager } from "@/api";
 import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
-
-interface ResponseBody {
-  code: string;
-  success: boolean;
-  message: string;
-  type: string;
-}
-
+ 
 export default defineComponent({
   components: {
     YinDelDialog,
@@ -71,10 +64,10 @@ export default defineComponent({
       tableData.value = [];
       tempDate.value = [];
       const result = (await HttpManager.getCollectionOfUser(proxy.$route.query.id)) as any;
-      for (let item of result.data) {
-        const result = await HttpManager.getSongOfId(item.song_id) as any;
-        tableData.value.push(result.data[0]);
-        tempDate.value.push(result.data[0]);
+      for (let item of result.Data) {
+        const result = await HttpManager.getSongOfId(item.Song_Id) as any;
+        tableData.value.push(result.Data[0]);
+        tempDate.value.push(result.Data[0]);
       }
     }
 
@@ -88,11 +81,11 @@ export default defineComponent({
     async function confirm() {
       const result = (await HttpManager.deleteCollection(proxy.$route.query.id, idx.value)) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) getData();
+      if (result.Tag == 1) getData();
       delVisible.value = false;
     }
     function deleteRow(id) {

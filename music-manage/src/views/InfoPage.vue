@@ -174,9 +174,9 @@ function setSex(sex, arr) {
 }
 HttpManager.getAllUser().then((res) => {
   const result = res as ResponseBody;
-  userCount.value = result.data.length;
-  userSex.series[0].data.push(setSex(0, result.data));
-  userSex.series[0].data.push(setSex(1, result.data));
+  userCount.value = result.Data.length;
+  userSex.series[0].data.push(setSex(0, result.Data));
+  userSex.series[0].data.push(setSex(1, result.Data));
 
   // const userSexChart = echarts.init(proxy.$refs.userSex);
   const userSexChart = echarts.init(document.getElementById("userSex"));
@@ -184,14 +184,14 @@ HttpManager.getAllUser().then((res) => {
 });
 
 HttpManager.getAllSong().then((res) => {
-  songCount.value = (res as ResponseBody).data.length;
+  songCount.value = (res as ResponseBody).Data.length;
 });
 HttpManager.getSongList().then((res) => {
   const result = res as ResponseBody;
-  songListCount.value = result.data.length;
-  for (let item of result.data) {
+  songListCount.value = result.Data.length;
+  for (let item of result.Data) {
     for (let i = 0; i < songStyle.xAxis.data.length; i++) {
-      if (item.style.includes(songStyle.xAxis.data[i])) {
+      if (item.Style.includes(songStyle.xAxis.data[i])) {
         songStyle.series[0].data[i]++;
       }
     }
@@ -203,15 +203,15 @@ HttpManager.getSongList().then((res) => {
 
 HttpManager.getAllSinger().then((res) => {
   const result = res as ResponseBody;
-  singerCount.value = result.data.length;
-  singerSex.series[0].data.push(setSex(0, result.data));
-  singerSex.series[0].data.push(setSex(1, result.data));
+  singerCount.value = result.Data.length;
+  singerSex.series[0].data.push(setSex(0, result.Data));
+  singerSex.series[0].data.push(setSex(1, result.Data));
   const singerSexChart = echarts.init(document.getElementById("singerSex"));
   singerSexChart.setOption(singerSex);
 
-  for (let item of result.data) {
+  for (let item of result.Data) {
     for (let i = 0; i < country.xAxis.data.length; i++) {
-      if (item.location.includes(country.xAxis.data[i])) {
+      if (item.Location.includes(country.xAxis.data[i])) {
         country.series[0].data[i]++;
       }
     }

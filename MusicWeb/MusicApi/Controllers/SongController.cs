@@ -17,6 +17,17 @@ namespace MusicApi.Controllers
         {
             _songContract = songContract;
         }
+
+        /// <summary>
+        /// 返回所有歌曲
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("/song")]
+        public async Task<TData> AllSong()
+        {
+            return await _songContract.AllSong();
+        }
         /// <summary>
         /// 添加歌曲
         /// </summary>

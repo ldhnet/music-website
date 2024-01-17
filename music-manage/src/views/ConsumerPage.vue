@@ -7,35 +7,35 @@
 
     <el-table height="550px" border size="small" :data="data" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="40" align="center"></el-table-column>
-      <el-table-column label="ID" prop="id" width="50" align="center"></el-table-column>
+      <el-table-column label="Id" prop="Id" width="50" align="center"></el-table-column>
       <el-table-column label="用户头像" width="102" align="center">
         <template v-slot="scope">
-          <img :src="attachImageUrl(scope.row.avator)" style="width: 80px" />
+          <img :src="attachImageUrl(scope.row.Avator)" style="width: 80px" />
         </template>
       </el-table-column>
-      <el-table-column label="用户名" prop="username" width="80" align="center"></el-table-column>
+      <el-table-column label="用户名" prop="UserName" width="80" align="center"></el-table-column>
       <el-table-column label="性别" width="50" align="center">
         <template v-slot="scope">
-          <div>{{ changeSex(scope.row.sex) }}</div>
+          <div>{{ changeSex(scope.row.Sex) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="手机号码" prop="phoneNum" width="120" align="center"></el-table-column>
-      <el-table-column label="邮箱" prop="email" width="120" align="center"></el-table-column>
+      <el-table-column label="手机号码" prop="Phone_Num" width="120" align="center"></el-table-column>
+      <el-table-column label="邮箱" prop="Email" width="120" align="center"></el-table-column>
       <el-table-column label="生日" width="120" align="center">
         <template v-slot="scope">
-          <div>{{ getBirth(scope.row.birth) }}</div>
+          <div>{{ getBirth(scope.row.Birth) }}</div>
         </template>
       </el-table-column>
-      <el-table-column label="签名" prop="introduction"></el-table-column>
-      <el-table-column label="地区" prop="location" width="70" align="center"></el-table-column>
+      <el-table-column label="签名" prop="Introduction"></el-table-column>
+      <el-table-column label="地区" prop="Location" width="70" align="center"></el-table-column>
       <el-table-column label="收藏" width="90" align="center">
         <template v-slot="scope">
-          <el-button @click="goCollectPage(scope.row.id)">收藏</el-button>
+          <el-button @click="goCollectPage(scope.row.Id)">收藏</el-button>
         </template>
       </el-table-column>
       <el-table-column label="操作" width="90" align="center">
         <template v-slot="scope">
-          <el-button type="danger" @click="deleteRow(scope.row.id)">删除</el-button>
+          <el-button type="danger" @click="deleteRow(scope.row.Id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -88,7 +88,7 @@ export default defineComponent({
       } else {
         tableData.value = [];
         for (let item of tempDate.value) {
-          if (item.username.includes(searchWord.value)) {
+          if (item.UserName.includes(searchWord.value)) {
             tableData.value.push(item);
           }
         }
@@ -102,8 +102,8 @@ export default defineComponent({
       tableData.value = [];
       tempDate.value = [];
       const result = (await HttpManager.getAllUser()) as ResponseBody;
-      tableData.value = result.data;
-      tempDate.value = result.data;
+      tableData.value = result.Data;
+      tempDate.value = result.Data;
       currentPage.value = 1;
     }
     // 获取当前页
@@ -139,8 +139,8 @@ export default defineComponent({
     async function confirm() {
       const result = (await HttpManager.deleteUser(idx.value)) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
       if (result) getData();
       delVisible.value = false;
