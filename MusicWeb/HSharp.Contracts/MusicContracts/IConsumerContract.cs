@@ -12,6 +12,7 @@ namespace HSharp.Contracts.MusicContracts
 {
     public interface IConsumerContract
     {
+        Task<TData> UserLogin(LoginRequest request);
         Task<TData> AddUser(ConsumerRequest registryRequest);
 
         Task<TData> UpdateUserMsg(ConsumerRequest dto);

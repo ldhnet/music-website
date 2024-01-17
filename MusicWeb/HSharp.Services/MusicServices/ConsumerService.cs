@@ -9,6 +9,15 @@ namespace HSharp.Services.MusicServices
 {
     public class ConsumerService : RepositoryFactory, IConsumerContract
     {
+        public async Task<TData> UserLogin(LoginRequest request)
+        {
+            TData<bool> obj = new TData<bool>();
+            obj.Tag = 1; 
+            var result = await _Repository.FindEntity<Biz_Consumer>(c=>c.UserName == request.UserName.Trim() && c.Password == request.Password.Trim());
+            obj.Data = result.Id > 0;
+            obj.Description = result.Id > 0 ? "登录成功" : "登录失败";
+            return obj;
+        }
 
         public async Task<TData> AddUser(ConsumerRequest registryRequest)
         {
