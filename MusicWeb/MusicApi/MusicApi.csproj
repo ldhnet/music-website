@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>D:\gitee\music-website\MusicWeb\MusicApi\MusicApi.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HSharp.Contracts\HSharp.Contracts.csproj" />
+    <ProjectReference Include="..\HSharp.Entity\HSharp.Entity.csproj" />
+    <ProjectReference Include="..\HSharp.Mapper\HSharp.Mapper.csproj" />
+    <ProjectReference Include="..\HSharp.Services\HSharp.Services.csproj" />
+    <ProjectReference Include="..\HSharp.Util\HSharp.Util.csproj" />
+    <ProjectReference Include="..\MusicApi.Core\MusicApi.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataProtection\" />
+  </ItemGroup>
+
+</Project>

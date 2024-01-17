@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HSharp.Entity\HSharp.Entity.csproj" />
+    <ProjectReference Include="..\HSharp.Models\HSharp.Models.csproj" />
+    <ProjectReference Include="..\HSharp.Util\HSharp.Util.csproj" />
+  </ItemGroup>
+
+</Project>
