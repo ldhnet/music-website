@@ -1,8 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
-using MySqlConnector;
-using Oracle.ManagedDataAccess.Client;
-using System;
+using MySqlConnector;  
 using System.Data.Common;
 
 namespace HSharp.Data.Extension
@@ -85,18 +83,18 @@ namespace HSharp.Data.Extension
                     break;
 
                 case DatabaseType.Oracle:
-                    _dbParameter = new OracleParameter[size];
-                    while (i < size)
-                    {
-                        _dbParameter[i] = new OracleParameter(dbParameter[i].ParameterName, dbParameter[i].Value);
-                        i++;
-                    }
+                    //_dbParameter = new OracleParameter[size];
+                    //while (i < size)
+                    //{
+                    //    _dbParameter[i] = new OracleParameter(dbParameter[i].ParameterName, dbParameter[i].Value);
+                    //    i++;
+                    //}
                     break;
 
                 default:
                     throw new Exception("数据库类型目前不支持！");
             }
-            return _dbParameter;
+            return _dbParameter!;
         }
     }
 }

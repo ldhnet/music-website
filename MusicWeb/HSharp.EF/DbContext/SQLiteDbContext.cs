@@ -1,10 +1,6 @@
 ﻿using HSharp.Util;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
+using Microsoft.EntityFrameworkCore; 
+using System.ComponentModel.DataAnnotations.Schema; 
 using System.Reflection;
 
 namespace HSharp.Data.EF.DbContext

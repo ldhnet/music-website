@@ -1,10 +1,6 @@
 ﻿using HSharp.Util;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
+using Microsoft.EntityFrameworkCore; 
+using System.ComponentModel.DataAnnotations.Schema; 
 using System.Reflection;
 
 namespace HSharp.Data.EF.DbContext
@@ -37,13 +33,13 @@ namespace HSharp.Data.EF.DbContext
                                                                          .Where(p => !string.IsNullOrEmpty(p.GetCustomAttribute<TableAttribute>()?.Name));
             foreach (Type type in typesToRegister)
             {
-                dynamic configurationInstance = Activator.CreateInstance(type);
+                dynamic configurationInstance = Activator.CreateInstance(type)!;
                 modelBuilder.Model.AddEntityType(type);
             }
             foreach (var entity in modelBuilder.Model.GetEntityTypes())
             {
                 PrimaryKeyConvention.SetPrimaryKey(modelBuilder, entity.Name);
-                string currentTableName = modelBuilder.Entity(entity.Name).Metadata.GetTableName();
+                string currentTableName = modelBuilder.Entity(entity.Name).Metadata.GetTableName()!;
                 modelBuilder.Entity(entity.Name).ToTable(currentTableName);
 
                 //var properties = entity.GetProperties();
