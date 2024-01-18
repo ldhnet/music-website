@@ -53,7 +53,7 @@ export default defineComponent({
     }
 
     // 获取歌单
-    async function handleChangeView(item) {
+    async function handleChangeView(item) { 
       activeName.value = item.name;
       allPlayList.value = [];
       try {

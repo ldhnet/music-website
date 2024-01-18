@@ -49,7 +49,7 @@ export default defineComponent({
     });
     const userId = computed(() => store.getters.userId);
     const userPic = computed(() => store.getters.userPic);
- 
+
     watch(userPic, () => {
       dialogTableVisible.value = false;
     });
@@ -59,7 +59,6 @@ export default defineComponent({
       routerManager(RouterName.Setting, { path: RouterName.Setting });
     }
     async function getUserInfo(id) {
-      
       const result = (await HttpManager.getUserOfId(id)) as ResponseBody;
       personalInfo.UserName = result.Data[0].UserName;
       personalInfo.Sex = result.Data[0].Sex;

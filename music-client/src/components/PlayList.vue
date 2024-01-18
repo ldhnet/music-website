@@ -4,7 +4,7 @@
     <ul class="play-body">
       <li class="card-frame" v-for="(item, index) in playList" :key="index">
         <div class="card" @click="goAblum(item)">
-          <el-image class="card-img" fit="contain" :src="attachImageUrl(item.pic)" />
+          <el-image class="card-img" fit="contain" :src="attachImageUrl(item.Pic)" />
           <div class="mask" @click="goAblum(item)">
             <yin-icon class="mask-icon" :icon="BOFANG"></yin-icon>
           </div>
@@ -21,11 +21,7 @@ import YinIcon from "@/components/layouts/YinIcon.vue";
 import mixin from "@/mixins/mixin";
 import { Icon } from "@/enums";
 import { HttpManager } from "@/api";
-interface playInfo {
-  name:string,
-  title:string,
-  pic:string
-}
+ 
 export default defineComponent({
   components: {
     YinIcon,
@@ -52,7 +48,7 @@ export default defineComponent({
 
     function goAblum(item) {
       proxy.$store.commit("setSongDetails", item);
-      routerManager(path.value, { path: `/${path.value}/${item.id}` });
+      routerManager(path.value, { path: `/${path.value}/${item.Id}` });
     }
 
     return {

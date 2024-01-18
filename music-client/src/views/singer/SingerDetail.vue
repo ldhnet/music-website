@@ -40,7 +40,7 @@ export default defineComponent({
 
     onMounted(async () => {
       try {
-        const result = (await HttpManager.getSongOfSingerId(songDetails.value.id)) as ResponseBody;
+        const result = (await HttpManager.getSongOfSingerId(songDetails.value.Id)) as ResponseBody;
         currentSongList.value = result.Data;
       } catch (error) {
         console.error(error);

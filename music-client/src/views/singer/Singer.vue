@@ -36,7 +36,7 @@ const data = computed(() => {
 async function getAllSinger() {
   const result = (await HttpManager.getAllSinger()) as ResponseBody;
   currentPage.value = 1;
-  allPlayList.value = result.data;
+  allPlayList.value = result.Data;
 }
 
 getAllSinger();
@@ -60,6 +60,6 @@ function handleChangeView(item) {
 async function getSingerSex(sex) {
   const result = (await HttpManager.getSingerOfSex(sex)) as ResponseBody;
   currentPage.value = 1;
-  allPlayList.value = result.data;
+  allPlayList.value = result.Data;
 }
 </script>

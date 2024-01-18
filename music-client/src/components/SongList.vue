@@ -53,6 +53,8 @@ export default defineComponent({
     const store = useStore();
 
     const { songList } = toRefs(props); 
+
+
     const iconList = reactive({
       dislike: Icon.Dislike,
       like: Icon.Like,
@@ -61,13 +63,16 @@ export default defineComponent({
     const singerName = computed(() => store.getters.singerName);
     const songTitle = computed(() => store.getters.songTitle);
     const dataList = computed(() => {
-      const list = [];
-      songList.value.forEach((item: any, index) => {
-        item["SongName"] = getSongTitle(item.name);
-        item["SingerName"] = getSingerName(item.name);
-        item["Index"] = index;
-        list.push(item);
-      });
+    const list = [];
+        songList.value.forEach((item: any, index) => {
+          if(item){
+            item["SongName"] = getSongTitle(item.Name);
+            item["SingerName"] = getSingerName(item.Name);
+            item["Index"] = index;
+            list.push(item);
+          }        
+        });
+      
       return list;
     });
 
@@ -77,7 +82,7 @@ export default defineComponent({
         url: row.Url,
         pic: row.Pic,
         index: row.Index,
-        name: row.Name,
+        name: row.Title,
         lyric: row.Lyric,
         currentSongList: songList.value,
       });
