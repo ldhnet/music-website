@@ -1,4 +1,6 @@
- 
+
+using HSharp.Contracts.MusicContracts;
+using HSharp.Services.MusicServices;
 using Microsoft.AspNetCore.Mvc;  
 namespace MusicApi.Controllers
 {
@@ -21,6 +23,15 @@ namespace MusicApi.Controllers
         {
             _logger.LogInformation("api 预热");
             return "api 预热";
-        }  
+        }
+        [HttpGet]
+        //[ServiceFilter(typeof(MyFilter))]
+        public string Post(string param)
+        {
+            IAdminContract adminContract = new AdminService();
+          
+            _logger.LogInformation("api 预热" + param);
+            return "api 预热" + param;
+        }
     }
 }

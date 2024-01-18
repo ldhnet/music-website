@@ -15,7 +15,7 @@ namespace HSharp.Services.MusicServices
             obj.Tag = 1; 
             var result = await _Repository.FindEntity<Biz_Consumer>(c=>c.UserName == request.UserName.Trim() && c.Password == request.Password.Trim());
             obj.Data = result;
-            obj.Description = result.Id > 0 ? "登录成功" : "登录失败";
+            obj.Description = result != null && result.Id > 0 ? "登录成功" : "登录失败";
             return obj;
         }
 
