@@ -9,7 +9,7 @@
             <yin-icon class="mask-icon" :icon="BOFANG"></yin-icon>
           </div>
         </div>
-        <p class="card-name">{{ item.name || item.title }}</p>
+        <p class="card-name">{{ item.Name || item.Title }}</p>
       </li>
     </ul>
   </div>

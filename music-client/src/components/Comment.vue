@@ -9,18 +9,18 @@
   </div>
   <ul class="popular">
     <li v-for="(item, index) in commentList" :key="index">
-      <el-image class="popular-img" fit="contain" :src="attachImageUrl(item.avator)" />
+      <el-image class="popular-img" fit="contain" :src="attachImageUrl(item.Avator)" />
       <div class="popular-msg">
         <ul>
-          <li class="name">{{ item.username }}</li>
-          <li class="time">{{ formatDate(item.createTime||new Date()) }}</li>
-          <li class="content">{{ item.content }}</li>
+          <li class="name">{{ item.UserName }}</li>
+          <li class="time">{{ formatDate(item.Create_Time||new Date()) }}</li>
+          <li class="content">{{ item.Content }}</li>
         </ul>
       </div>
       <!--这特么是直接拿到了评论的id-->
-      <div ref="up" class="comment-ctr" @click="setSupport(item.id, item.up,userId)">
-        <div><yin-icon :icon="iconList.Support"></yin-icon> {{ item.up }}</div>
-        <el-icon v-if="item.userId === userId" @click="deleteComment(item.id, index)"><delete /></el-icon>
+      <div ref="up" class="comment-ctr" @click="setSupport(item.Id, item.Up,userId)">
+        <div><yin-icon :icon="iconList.Support"></yin-icon> {{ item.Up }}</div>
+        <el-icon v-if="item.UserId === userId" @click="deleteComment(item.Id, index)"><delete /></el-icon>
       </div>
     </li>
   </ul>
@@ -58,10 +58,8 @@ export default defineComponent({
     });
     const userIdVO = computed(() => store.getters.userId);
     const songIdVO = computed(() => store.getters.songId);
-
-    console.log('songIdVO================',songIdVO.value);
-    
-
+    const songDetails = computed(() => store.getters.songDetails); // 单个歌单信息
+  
     watch(songIdVO, () => {
       getComment();
     });
@@ -69,13 +67,13 @@ export default defineComponent({
     // 获取所有评论
     async function getComment() {
       try {
-        const result = (await HttpManager.getAllComment(type.value, songIdVO.value)) as ResponseBody;
+        const result = (await HttpManager.getAllComment(type.value, songDetails.value.Id)) as ResponseBody;
         commentList.value = result.Data;
         for (let index = 0; index < commentList.value.length; index++) {
           // 获取评论用户的昵称和头像
           const resultUser = (await HttpManager.getUserOfId(commentList.value[index].User_Id)) as ResponseBody;
-          commentList.value[index].avator = resultUser.Data[0].avator;
-          commentList.value[index].username = resultUser.Data[0].username;
+          commentList.value[index].Avator = resultUser.Data[0].Avator;
+          commentList.value[index].UserName = resultUser.Data[0].UserName;
         }
       } catch (error) {
         console.error(error);

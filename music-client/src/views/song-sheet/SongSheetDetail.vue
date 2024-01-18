@@ -11,12 +11,12 @@
       <div class="album-score">
         <div>
           <h3>歌单评分</h3>
-          <el-rate v-model="Rank" allow-half disabled></el-rate>
+          <el-rate v-model="rank" allow-half disabled></el-rate>
         </div>
-        <span>{{ Rank * 2 }}</span>
+        <span>{{ rank * 2 }}</span>
         <div>
-          <h3>{{ assistText }} {{ Score * 2 }}</h3>
-          <el-rate allow-half v-model="Score" :disabled="disabledRank" @click="pushValue()"></el-rate>
+          <h3>{{ assistText }} {{ score * 2 }}</h3>
+          <el-rate allow-half v-model="score" :disabled="disabledRank" @click="pushValue()"></el-rate>
         </div>
       </div>
       <!--歌曲-->
@@ -54,7 +54,7 @@ export default defineComponent({
     const songDetails = computed(() => store.getters.songDetails); // 单个歌单信息
     const nowUserId = computed(() => store.getters.userId);
 
-    nowSongListId.value = songDetails.value.id; // 给歌单ID赋值
+    nowSongListId.value = songDetails.value.Id; // 给歌单ID赋值
 
     // 收集歌单里面的歌曲
     async function getSongId(id) {
@@ -62,7 +62,7 @@ export default defineComponent({
       // 获取歌单里的歌曲信息
       for (const item of result.Data) {
         // 获取单里的歌曲
-        const resultSong = (await HttpManager.getSongOfId(item.song_id)) as ResponseBody;
+        const resultSong = (await HttpManager.getSongOfId(item.Song_Id)) as ResponseBody;
         currentSongList.value.push(resultSong.Data[0]);
       }
     }
