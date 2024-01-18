@@ -11,10 +11,10 @@ namespace HSharp.Services.MusicServices
     {
         public async Task<TData> UserLogin(LoginRequest request)
         {
-            TData<bool> obj = new TData<bool>();
+            TData<Biz_Consumer> obj = new TData<Biz_Consumer>();
             obj.Tag = 1; 
             var result = await _Repository.FindEntity<Biz_Consumer>(c=>c.UserName == request.UserName.Trim() && c.Password == request.Password.Trim());
-            obj.Data = result.Id > 0;
+            obj.Data = result;
             obj.Description = result.Id > 0 ? "登录成功" : "登录失败";
             return obj;
         }
@@ -26,6 +26,7 @@ namespace HSharp.Services.MusicServices
             var entity = registryRequest.MapTo<Biz_Consumer>();
             var result = await _Repository.Insert(entity);
             obj.Data = result > 0;
+            obj.Description = result > 0 ? "注册成功" : "注册失败";
             return obj;
         }
 

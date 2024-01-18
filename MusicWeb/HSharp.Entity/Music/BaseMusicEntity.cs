@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using HSharp.Util;
 using HSharp.IdGenerator;
 using MusicApi.Core;
+using System.ComponentModel.DataAnnotations;
 
 namespace HSharp.Entity.Music
 {
@@ -20,6 +21,7 @@ namespace HSharp.Entity.Music
         /// long返回到前端js的时候，会丢失精度，所以转成字符串
         /// </summary>
         [JsonConverter(typeof(StringJsonConverter))]
+        [Key]
         public int Id { get; set; }
 
         /// <summary>
