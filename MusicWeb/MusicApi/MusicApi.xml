@@ -4,6 +4,12 @@
         <name>MusicApi</name>
     </assembly>
     <members>
+        <member name="M:MusicApi.Controllers.BannerController.GetAllBanner">
+            <summary>
+            获取Banner图
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:MusicApi.Controllers.CollectController.AddCollection(HSharp.Models.Request.CollectRequest)">
             <summary>
             添加收藏的歌曲
