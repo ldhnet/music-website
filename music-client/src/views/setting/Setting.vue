@@ -40,8 +40,8 @@ export default defineComponent({
     async function cancelAccount() {
       const result = (await HttpManager.deleteUser(userId.value)) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
       routerManager(RouterName.SignIn, { path: RouterName.SignIn });
       proxy.$store.commit("setToken", false);

@@ -1,22 +1,22 @@
 <template>
   <el-container>
     <el-aside class="album-slide">
-      <el-image class="album-img" fit="contain" :src="attachImageUrl(songDetails.pic)" />
-      <h3 class="album-info">{{ songDetails.title }}</h3>
+      <el-image class="album-img" fit="contain" :src="attachImageUrl(songDetails.Pic)" />
+      <h3 class="album-info">{{ songDetails.Title }}</h3>
     </el-aside>
     <el-main class="album-main">
       <h1>简介</h1>
-      <p>{{ songDetails.introduction }}</p>
+      <p>{{ songDetails.Introduction }}</p>
       <!--评分-->
       <div class="album-score">
         <div>
           <h3>歌单评分</h3>
-          <el-rate v-model="rank" allow-half disabled></el-rate>
+          <el-rate v-model="Rank" allow-half disabled></el-rate>
         </div>
-        <span>{{ rank * 2 }}</span>
+        <span>{{ Rank * 2 }}</span>
         <div>
-          <h3>{{ assistText }} {{ score * 2 }}</h3>
-          <el-rate allow-half v-model="score" :disabled="disabledRank" @click="pushValue()"></el-rate>
+          <h3>{{ assistText }} {{ Score * 2 }}</h3>
+          <el-rate allow-half v-model="Score" :disabled="disabledRank" @click="pushValue()"></el-rate>
         </div>
       </div>
       <!--歌曲-->
@@ -60,20 +60,20 @@ export default defineComponent({
     async function getSongId(id) {
       const result = (await HttpManager.getListSongOfSongId(id)) as ResponseBody;
       // 获取歌单里的歌曲信息
-      for (const item of result.data) {
+      for (const item of result.Data) {
         // 获取单里的歌曲
         const resultSong = (await HttpManager.getSongOfId(item.song_id)) as ResponseBody;
-        currentSongList.value.push(resultSong.data[0]);
+        currentSongList.value.push(resultSong.Data[0]);
       }
     }
     // 获取评分
     async function getRank(id) {
       const result = (await HttpManager.getRankOfSongListId(id)) as ResponseBody;
-      nowRank.value = result.data / 2;
+      nowRank.value = result.Data / 2;
     }
     async function getUserRank(userId, songListId) {
       const result = (await HttpManager.getUserRank(userId, songListId)) as ResponseBody;
-      nowScore.value = result.data / 2;
+      nowScore.value = result.Data / 2;
       disabledRank.value = true;
       assistText.value = "已评价";
     }
@@ -88,11 +88,11 @@ export default defineComponent({
       try {
         const result = (await HttpManager.setRank({songListId,consumerId,score})) as ResponseBody;
         (proxy as any).$message({
-          message: result.message,
-          type: result.type,
+          message: result.Description,
+          type: result.Tag,
         });
 
-        if (result.success) {
+        if (result.Tag == 1) {
           getRank(nowSongListId.value);
           disabledRank.value = true;
           assistText.value = "已评价";

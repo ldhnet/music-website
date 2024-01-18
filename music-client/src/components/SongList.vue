@@ -1,9 +1,9 @@
 <template>
   <div class="content">
     <el-table highlight-current-row :data="dataList" @row-click="handleClick">
-      <el-table-column prop="songName" label="歌曲" />
-      <el-table-column prop="singerName" label="歌手" />
-      <el-table-column prop="introduction" label="专辑" />
+      <el-table-column prop="SongName" label="歌曲" />
+      <el-table-column prop="SingerName" label="歌手" />
+      <el-table-column prop="Introduction" label="专辑" />
       <el-table-column label="编辑" width="80" align="center">
         <template #default="scope">
           <el-dropdown>
@@ -14,11 +14,11 @@
                   :icon="Download"
                   @click="
                     downloadMusic({
-                      songUrl: scope.row.url,
-                      songName: scope.row.name,
+                      songUrl: scope.row.Url,
+                      songName: scope.row.Name,
                     })
                   ">下载</el-dropdown-item>
-                <el-dropdown-item :icon="Delete" v-if="show" @click="deleteCollection({ id: scope.row.id })">删除</el-dropdown-item>
+                <el-dropdown-item :icon="Delete" v-if="show" @click="deleteCollection({ id: scope.row.Id })">删除</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -63,9 +63,9 @@ export default defineComponent({
     const dataList = computed(() => {
       const list = [];
       songList.value.forEach((item: any, index) => {
-        item["songName"] = getSongTitle(item.name);
-        item["singerName"] = getSingerName(item.name);
-        item["index"] = index;
+        item["SongName"] = getSongTitle(item.name);
+        item["SingerName"] = getSingerName(item.name);
+        item["Index"] = index;
         list.push(item);
       });
       return list;
@@ -73,12 +73,12 @@ export default defineComponent({
 
     function handleClick(row) {
       playMusic({
-        id: row.id,
-        url: row.url,
-        pic: row.pic,
-        index: row.index,
-        name: row.name,
-        lyric: row.lyric,
+        id: row.Id,
+        url: row.Url,
+        pic: row.Pic,
+        index: row.Index,
+        name: row.Name,
+        lyric: row.Lyric,
         currentSongList: songList.value,
       });
     }
@@ -94,13 +94,13 @@ export default defineComponent({
 
       const result = (await HttpManager.deleteCollection(userId.value, id)) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.data === false)
+      if (result.Tag == 1)
       {
-        proxy.$emit("changeData", result.data);
+        proxy.$emit("changeData", result.Data);
       }
     }
 

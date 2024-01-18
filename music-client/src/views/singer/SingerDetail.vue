@@ -1,19 +1,19 @@
 <template>
   <el-container>
     <el-aside class="album-slide">
-      <el-image class="singer-img" fit="contain" :src="attachImageUrl(songDetails.pic)" />
+      <el-image class="singer-img" fit="contain" :src="attachImageUrl(songDetails.Pic)" />
       <div class="album-info">
         <h2>基本资料</h2>
         <ul>
-          <li v-if="songDetails.sex !== 2">性别：{{ getUserSex(songDetails.sex) }}</li>
-          <li>生日：{{ getBirth(songDetails.birth) }}</li>
-          <li>故乡：{{ songDetails.location }}</li>
+          <li v-if="songDetails.Sex !== 2">性别：{{ getUserSex(songDetails.Sex) }}</li>
+          <li>生日：{{ getBirth(songDetails.Birth) }}</li>
+          <li>故乡：{{ songDetails.Location }}</li>
         </ul>
       </div>
     </el-aside>
     <el-main class="album-main">
-      <h1>{{ songDetails.name }}</h1>
-      <p>{{ songDetails.introduction }}</p>
+      <h1>{{ songDetails.Name }}</h1>
+      <p>{{ songDetails.Introduction }}</p>
       <song-list :songList="currentSongList"></song-list>
     </el-main>
   </el-container>
@@ -41,7 +41,7 @@ export default defineComponent({
     onMounted(async () => {
       try {
         const result = (await HttpManager.getSongOfSingerId(songDetails.value.id)) as ResponseBody;
-        currentSongList.value = result.data;
+        currentSongList.value = result.Data;
       } catch (error) {
         console.error(error);
       }

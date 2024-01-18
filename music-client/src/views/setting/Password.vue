@@ -1,13 +1,13 @@
 <template>
   <el-form ref="passwordForm" label-width="70px" :model="form" :rules="rules">
-    <el-form-item label="旧密码" prop="oldPassword">
-      <el-input type="password" v-model="form.oldPassword" />
+    <el-form-item label="旧密码" prop="OldPassword">
+      <el-input type="password" v-model="form.OldPassword" />
     </el-form-item>
-    <el-form-item label="新密码" prop="newPassword">
-      <el-input type="password" v-model="form.newPassword" />
+    <el-form-item label="新密码" prop="NewPassword">
+      <el-input type="password" v-model="form.NewPassword" />
     </el-form-item>
-    <el-form-item label="密码确认" prop="confirmPassword">
-      <el-input type="password" v-model="form.confirmPassword" />
+    <el-form-item label="密码确认" prop="ConfirmPassword">
+      <el-input type="password" v-model="form.ConfirmPassword" />
     </el-form-item>
     <el-form-item>
       <el-button @click="clearData()">重置</el-button>
@@ -30,9 +30,9 @@ export default defineComponent({
     const { goBack } = mixin();
 
     const form = reactive({
-      oldPassword: "",
-      newPassword: "",
-      confirmPassword: "",
+      OldPassword: "",
+      NewPassword: "",
+      ConfirmPassword: "",
     });
     const userId = computed(() => store.getters.userId);
     const userName = computed(() => store.getters.username);
@@ -40,22 +40,22 @@ export default defineComponent({
     const validateCheck = (rule: any, value: any, callback: any) => {
       if (value === "") {
         callback(new Error("密码不能为空"));
-      } else if (value !== form.newPassword) {
+      } else if (value !== form.NewPassword) {
         callback(new Error("请输入正确密码"));
       } else {
         callback();
       }
     };
     const rules = reactive({
-      oldPassword: [{ validator: validatePassword, trigger: "blur", min: 3 }],
-      newPassword: [{ validator: validatePassword, trigger: "blur", min: 3 }],
-      confirmPassword: [{ validator: validateCheck, trigger: "blur", min: 3 }],
+      OldPassword: [{ validator: validatePassword, trigger: "blur", min: 3 }],
+      NewPassword: [{ validator: validatePassword, trigger: "blur", min: 3 }],
+      ConfirmPassword: [{ validator: validateCheck, trigger: "blur", min: 3 }],
     });
 
     async function clearData() {
-      form.oldPassword = "";
-      form.newPassword = "";
-      form.confirmPassword = "";
+      form.OldPassword = "";
+      form.NewPassword = "";
+      form.ConfirmPassword = "";
     }
 
     async function confirm() {
@@ -66,17 +66,17 @@ export default defineComponent({
       if (!canRun) return;
 
 
-      const id = userId.value;
-      const username = userName.value;
-      const oldPassword = form.oldPassword;
-      const password = form.newPassword;
+      const Id = userId.value;
+      const UserName = userName.value;
+      const OldPassword = form.OldPassword;
+      const Password = form.NewPassword;
 
-      const result = (await HttpManager.updateUserPassword({id,username,oldPassword,password})) as ResponseBody;
+      const result = (await HttpManager.updateUserPassword({Id,UserName,OldPassword,Password})) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
-      if (result.success) goBack();
+      if (result.Tag == 1) goBack();
     }
 
     return {

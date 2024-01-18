@@ -78,7 +78,7 @@ export default function () {
     eleLink.download = `${songName}.mp3`;
     eleLink.style.display = "none";
     // 字符内容转变成 blob 地址
-    const blob = new Blob([result.data]);
+    const blob = new Blob([result.Data]);
     eleLink.href = URL.createObjectURL(blob);
     document.body.appendChild(eleLink); // 触发点击
     eleLink.click();

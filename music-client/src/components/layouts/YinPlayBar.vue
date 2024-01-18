@@ -98,7 +98,7 @@ export default defineComponent({
       const userId = userIdVO.value;
       const type = '0';
       const songId = songIdVO.value;
-      isCollection.value = ((await HttpManager.isCollection({userId, type, songId})) as ResponseBody).data;
+      isCollection.value = ((await HttpManager.isCollection({userId, type, songId})) as ResponseBody).Data;
     }
 
     async function changeCollection() {
@@ -112,11 +112,11 @@ export default defineComponent({
           ? ((await HttpManager.deleteCollection(userIdVO.value, songIdVO.value)) as ResponseBody)
           : ((await HttpManager.setCollection({userId, type, songId})) as ResponseBody);
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.data == true || result.data == false) isCollection.value = result.data;
+      if (result.Tag == 1) isCollection.value = result.Data;
     }
 
     onMounted(() => {

@@ -3,8 +3,8 @@
     <div class="personal-info">
       <el-image class="personal-img" fit="contain" :src="attachImageUrl(userPic)" @click="dialogTableVisible = true" />
       <div class="personal-msg">
-        <div class="username">{{ personalInfo.username }}</div>
-        <div class="introduction">{{ personalInfo.introduction }}</div>
+        <div class="username">{{ personalInfo.UserName }}</div>
+        <div class="introduction">{{ personalInfo.Introduction }}</div>
       </div>
       <el-button class="edit-info" round :icon="Edit" @click="goPage()">修改个人信息</el-button>
     </div>
@@ -41,11 +41,11 @@ export default defineComponent({
     const dialogTableVisible = ref(false);
     const collectSongList = ref([]); // 收藏的歌曲
     const personalInfo = reactive({
-      username: "",
-      userSex: "",
-      birth: "",
-      location: "",
-      introduction: "",
+      UserName: "",
+      Sex: "",
+      Birth: "",
+      Location: "",
+      Introduction: "",
     });
     const userId = computed(() => store.getters.userId);
     const userPic = computed(() => store.getters.userPic);
@@ -61,21 +61,21 @@ export default defineComponent({
     async function getUserInfo(id) {
       
       const result = (await HttpManager.getUserOfId(id)) as ResponseBody;
-      personalInfo.username = result.data[0].username;
-      personalInfo.userSex = result.data[0].sex;
-      personalInfo.birth = result.data[0].birth;
-      personalInfo.introduction = result.data[0].introduction;
-      personalInfo.location = result.data[0].location;
+      personalInfo.UserName = result.Data[0].UserName;
+      personalInfo.Sex = result.Data[0].Sex;
+      personalInfo.Birth = result.Data[0].Birth;
+      personalInfo.Introduction = result.Data[0].Introduction;
+      personalInfo.Location = result.Data[0].Location;
     }
     // 获取收藏的歌曲
     async function getCollection(userId) {
       collectSongList.value = []
       const result = (await HttpManager.getCollectionOfUser(userId)) as ResponseBody;
-      const collectIDList = result.data || []; // 存放收藏的歌曲ID
+      const collectIDList = result.Data || []; // 存放收藏的歌曲ID
       // 通过歌曲ID获取歌曲信息
       for (const item of collectIDList) {
-        const result = (await HttpManager.getSongOfId(item.song_id)) as ResponseBody;
-        collectSongList.value.push(result.data[0]);
+        const result = (await HttpManager.getSongOfId(item.Song_Id)) as ResponseBody;
+        collectSongList.value.push(result.Data[0]);
       }
       // console.log('collectSongList========',JSON.stringify(collectSongList.value))
     }

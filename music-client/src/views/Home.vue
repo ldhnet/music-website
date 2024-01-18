@@ -25,15 +25,15 @@ const { changeIndex } = mixin();
 try {
 
   HttpManager.getBannerList().then((res) => {
-    swiperList.value = (res as ResponseBody).data.sort();
+    swiperList.value = (res as ResponseBody).Data.sort();
   });
 
   HttpManager.getSongList().then((res) => {
-    songList.value = (res as ResponseBody).data.sort().slice(0, 10);
+    songList.value = (res as ResponseBody).Data.sort().slice(0, 10);
   });
 
   HttpManager.getAllSinger().then((res) => {
-    singerList.value = (res as ResponseBody).data.sort().slice(0, 10);
+    singerList.value = (res as ResponseBody).Data.sort().slice(0, 10);
   });
 
   onMounted(() => {

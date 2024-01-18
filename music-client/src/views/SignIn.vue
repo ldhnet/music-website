@@ -49,18 +49,18 @@ export default defineComponent({
 
 
       try {
-        const username = registerForm.username;
-        const password = registerForm.password;
-        const result = (await HttpManager.signIn({username,password})) as ResponseBody; 
+        const UserName = registerForm.username;
+        const Password = registerForm.password;
+        const result = (await HttpManager.signIn({UserName,Password})) as ResponseBody; 
         (proxy as any).$message({
-          message: result.message,
-          type: result.type,
+          message: result.Description,
+          type: result.Tag,
         });
 
-        if (result.success) {
-          proxy.$store.commit("setUserId", result.data.id);
-          proxy.$store.commit("setUsername", result.data.username);
-          proxy.$store.commit("setUserPic", result.data.avator);
+        if (result.Tag == 1) {
+          proxy.$store.commit("setUserId", result.Data.Id);
+          proxy.$store.commit("setUsername", result.Data.UserName);
+          proxy.$store.commit("setUserPic", result.Data.Avator);
           proxy.$store.commit("setToken", true);
           changeIndex(NavName.Home);
           routerManager(RouterName.Home, { path: RouterName.Home });

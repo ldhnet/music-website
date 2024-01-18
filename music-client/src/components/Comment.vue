@@ -70,12 +70,12 @@ export default defineComponent({
     async function getComment() {
       try {
         const result = (await HttpManager.getAllComment(type.value, songIdVO.value)) as ResponseBody;
-        commentList.value = result.data;
+        commentList.value = result.Data;
         for (let index = 0; index < commentList.value.length; index++) {
           // 获取评论用户的昵称和头像
-          const resultUser = (await HttpManager.getUserOfId(commentList.value[index].user_id)) as ResponseBody;
-          commentList.value[index].avator = resultUser.data[0].avator;
-          commentList.value[index].username = resultUser.data[0].username;
+          const resultUser = (await HttpManager.getUserOfId(commentList.value[index].User_Id)) as ResponseBody;
+          commentList.value[index].avator = resultUser.Data[0].avator;
+          commentList.value[index].username = resultUser.Data[0].username;
         }
       } catch (error) {
         console.error(error);
@@ -101,11 +101,11 @@ export default defineComponent({
       const content = textarea.value;
       const result = (await HttpManager.setComment({userId,content,songId,songListId,nowType})) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) {
+      if (result.Tag == 1) {
         textarea.value = "";
         await getComment();
       }
@@ -115,11 +115,11 @@ export default defineComponent({
     async function deleteComment(id, index) {
       const result = (await HttpManager.deleteComment(id)) as ResponseBody;
       (proxy as any).$message({
-        message: result.message,
-        type: result.type,
+        message: result.Description,
+        type: result.Tag,
       });
 
-      if (result.success) commentList.value.splice(index, 1);
+      if (result.Tag == 1) commentList.value.splice(index, 1);
     }
 
     // 点赞  还得再查一下
@@ -131,12 +131,12 @@ export default defineComponent({
       //当然可以这么左 直接在判断的时候 进行点赞或者取消
       const r = (await HttpManager.testAlreadySupport({commentId,userId})) as ResponseBody;
       (proxy as any).$message({
-        message: r.message,
-        type: r.type,
-        date: r.data
+        message: r.Description,
+        type: r.Tag,
+        date: r.Data
       });
 
-      if (r.data){
+      if (r.Data){
         up = up - 1;
         operatorR = (await HttpManager.deleteUserSupport({commentId,userId})) as ResponseBody;
         result = (await HttpManager.setSupport({id,up})) as ResponseBody;
@@ -145,7 +145,7 @@ export default defineComponent({
         operatorR = (await HttpManager.insertUserSupport({commentId,userId})) as ResponseBody;
         result = (await HttpManager.setSupport({id,up})) as ResponseBody;
       }
-      if (result.success&&operatorR.success) {
+      if (result.Tag == 1&&operatorR.Tag == 1) {
         // proxy.$refs.up[index].children[0].style.color = "#2796dd";
         await getComment();
       }

@@ -31,14 +31,14 @@ export default defineComponent({
         return;
       }
       const result = (await HttpManager.getSongOfSingerName(value)) as ResponseBody;
-      if (!result.data.length) {
+      if (!result.Data.length) {
         currentSongList.value = [];
         (proxy as any).$message({
           message: "暂时没有相关歌曲",
           type: "warning",
         });
       } else {
-        currentSongList.value = result.data;
+        currentSongList.value = result.Data;
       }
     }
 
