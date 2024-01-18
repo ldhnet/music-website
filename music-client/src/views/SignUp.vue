@@ -9,7 +9,7 @@
         <el-input v-model="registerForm.UserName" placeholder="用户名"></el-input>
       </el-form-item>
       <el-form-item prop="Password" label="密码">
-        <el-input type="Password" placeholder="密码" v-model="registerForm.Password"></el-input>
+        <el-input type="password" placeholder="密码" v-model="registerForm.Password"></el-input>
       </el-form-item>
       <el-form-item prop="Sex" label="性别">
         <el-radio-group v-model="registerForm.Sex">
@@ -37,7 +37,7 @@
       </el-form-item>
       <el-form-item class="sign-btn">
         <el-button @click="goSignIn()">登录</el-button>
-        <el-button type="primary" @click="handleSignUp(formRef)">确定</el-button>
+        <el-button type="primary" @click="handleSignUp()">确定</el-button>
       </el-form-item>
     </el-form>
   </div>

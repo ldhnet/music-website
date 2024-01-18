@@ -5,11 +5,11 @@
       <span>帐号登录</span>
     </div>
     <el-form ref="signInForm" status-icon :model="registerForm" :rules="SignInRules">
-      <el-form-item prop="username">
-        <el-input placeholder="用户名" v-model="registerForm.username"></el-input>
+      <el-form-item prop="UserName">
+        <el-input placeholder="用户名" v-model="registerForm.UserName"></el-input>
       </el-form-item>
-      <el-form-item prop="password">
-        <el-input type="password" placeholder="密码" v-model="registerForm.password" @keyup.enter="handleLoginIn"></el-input>
+      <el-form-item prop="Password">
+        <el-input type="Password" placeholder="密码" v-model="registerForm.Password" @keyup.enter="handleLoginIn"></el-input>
       </el-form-item>
       <el-form-item class="sign-btn">
         <el-button @click="handleSignUp">注册</el-button>
@@ -36,8 +36,8 @@ export default defineComponent({
 
     // 登录用户名密码
     const registerForm = reactive({
-      username: "",
-      password: "",
+      UserName: "",
+      Password: "",
     });
 
     async function handleLoginIn() {
@@ -49,15 +49,15 @@ export default defineComponent({
 
 
       try {
-        const UserName = registerForm.username;
-        const Password = registerForm.password;
+        const UserName = registerForm.UserName;
+        const Password = registerForm.Password;
         const result = (await HttpManager.signIn({UserName,Password})) as ResponseBody; 
         (proxy as any).$message({
           message: result.Description,
           type: result.Tag,
         });
 
-        if (result.Tag == 1) {
+        if (result.Data && result.Tag == 1) {
           proxy.$store.commit("setUserId", result.Data.Id);
           proxy.$store.commit("setUsername", result.Data.UserName);
           proxy.$store.commit("setUserPic", result.Data.Avator);
