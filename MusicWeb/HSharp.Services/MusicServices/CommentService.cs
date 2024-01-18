@@ -15,6 +15,7 @@ namespace HSharp.Services.MusicServices
         {
             TData obj = new TData();
             var entity = dto.MapTo<Biz_Comment>();
+            entity.Create_Time=DateTime.Now;
             obj.Tag = await _Repository.Insert(entity);
             return obj;
         }
