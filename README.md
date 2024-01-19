@@ -58,12 +58,16 @@ GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 - 音乐收藏、下载、拖动控制、音量控制
 - 后台对用户、歌曲、歌手、歌单信息的管理
 <br/>
+
 ## 技术栈
+
 ### 后端
 **NET8 + EFCore + Sqlite/Mysql**/Sqlserver
+
 ### 前端
 **Vue3.2 + TypeScript + Vue-Router + Vuex + Axios + ElementPlus + Echarts**
 <br/>
+
 ## 开发环境
 JDK： dotnet-sdk-8.0.0-win-x64.exe
 mysql：mysql-8.0.22 （或者更高版本）  
@@ -111,6 +115,7 @@ npm run serve // 启动后台管理项目
 ## 赞助
 
 如果此项目对你确实有帮助，欢迎给我打赏一杯咖啡～😄
+
 <img src="https://gitee.com/ldhnet/vue3-ts-vant-h5/raw/master/src/assets/img/wxpay.png" height="300px"/>
 <br/>
 ## License
