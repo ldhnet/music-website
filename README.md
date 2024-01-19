@@ -3,7 +3,7 @@
 #### 介绍
 
 本项目已升级至NET8
-Vue3.2 + NET8+ EFCore音乐网站  本开源项目是模仿 Yinhongwei 大佬的 Vue + SpringBoot + MyBatis 音乐网站 项目
+Vue3.2 + NET8+ EFCore音乐网站  本开源项目是参照 Yinhongwei 大佬的 Vue + SpringBoot + MyBatis 音乐网站 项目
 <br/>
 GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 <br/>
