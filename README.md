@@ -128,7 +128,7 @@ git clone https://gitee.com/ldhnet/music-website.git
  
 ### 4、启动项目
 
-- **启动管理端**：进入 music-server 文件夹，VS 2022 IDE 打开
+- **启动管理端**：进入 MusicWeb 文件夹，VS 2022 IDE 打开（由于升级到了.NET8 需要VS2022 v17.8.0及以上版本）
 
  
 - **启动客户端**：进入 music-client 目录，运行下面命令
