@@ -1,16 +1,16 @@
 # music-website
-
 #### 介绍
-
 本项目已升级至NET8
-Vue3.2 + NET8+ EFCore音乐网站  本开源项目是参照 Yinhongwei 大佬的 Vue + SpringBoot + MyBatis 音乐网站 项目
+Vue3.2 + NET8 + EFCore 音乐播放网站 
 <br/>
 GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 <br/>
-
 技术支持邮箱：574427343@qq.com
+<br/>
 同时欢迎Issues反馈
 
+<br/>
+本开源项目是参照 Yinhongwei 大佬的 Vue + SpringBoot + MyBatis 音乐网站 项目
 尊重源作者  [Yin-hongwei](https://gitee.com/Yin-hongwei/)
 
 #### 预览入[由于购买的私有云服务器到期未续费，预览入口暂时关闭，生活不易，谢谢体谅]
