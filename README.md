@@ -5,10 +5,12 @@ Vue3.2 + NET8 + EFCore 音乐播放网站
 <br/>
 GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 <br/>
+
 技术支持邮箱：574427343@qq.com
 <br/>
 同时欢迎Issues反馈
 <br/>
+
 本开源项目是参照 Yinhongwei 大佬的 Vue + SpringBoot + MyBatis 音乐网站项目<br/>
 尊重源作者  [Yin-hongwei](https://gitee.com/Yin-hongwei/)
 
@@ -68,15 +70,21 @@ mysql：mysql-8.0.22 （或者更高版本）
 node：14.17.3
 IDE：VS 2022、VSCode
 <br/>
+
 ## 下载运行
+
 ### 1、下载项目到本地
+
 ```bash
 git clone https://gitee.com/ldhnet/music-website.git 
 ```
+
 ### 2、下载数据库中记录的资源
+
 去【链接: https://pan.baidu.com/s/1ChYYzZFDLGNP8nCT0Hjx7g  提取码: duzz 】下载网站依赖的歌曲及图片，将 data 夹里的文件放到 MusicApi/wwwroot 文件夹下。
  
 ### 3、修改配置文件
+
 1）创建数据库
 
 将 `music-website/sql` 文件夹中的
@@ -88,6 +96,7 @@ git clone https://gitee.com/ldhnet/music-website.git
 
 - **启动管理端**：进入 MusicWeb 文件夹，VS 2022 IDE 打开（由于升级到了.NET8 需要VS2022 v17.8.0及以上版本） 
 - **启动客户端**：进入 music-client 目录，运行下面命令
+
 ```js
 npm install // 安装依赖
 npm run dev // 启动前台项目
@@ -95,6 +104,7 @@ npm run dev // 启动前台项目
 - **启动管理端**：进入 music-manage 目录，运行下面命令
 ```js
 npm install // 安装依赖
+
 npm run serve // 启动后台管理项目
 ```
 <br/>
