@@ -120,7 +120,7 @@ git clone https://gitee.com/ldhnet/music-website.git
 
 ### 2、下载数据库中记录的资源
 
-去【链接: https://pan.baidu.com/s/1uKQ6hQNuZ39y6HiJ-OF7SA  提取码: duzz 】下载网站依赖的歌曲及图片，将 data 夹里的文件放到 MusicApi/wwwroot 文件夹下。
+去【链接: https://pan.baidu.com/s/1ChYYzZFDLGNP8nCT0Hjx7g  提取码: duzz 】下载网站依赖的歌曲及图片，将 data 夹里的文件放到 MusicApi/wwwroot 文件夹下。
  
 ### 3、修改配置文件
 
