@@ -7,6 +7,10 @@ Vue3.2 + NET8+ EFCore音乐网站  本开源项目是模仿 Yinhongwei 大佬的
 <br/>
 GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 <br/>
+
+技术支持邮箱：574427343@qq.com
+同时欢迎Issues反馈
+
 尊重源作者  [Yin-hongwei](https://gitee.com/Yin-hongwei/)
 
 #### 预览入[由于购买的私有云服务器到期未续费，预览入口暂时关闭，生活不易，谢谢体谅]
