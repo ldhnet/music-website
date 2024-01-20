@@ -178,11 +178,32 @@ INSERT INTO `Biz_Comment` VALUES (64, 1, NULL, 1, '456', 1, 0, '2022-04-21 21:37
 INSERT INTO `Biz_Comment` VALUES (68, 59, NULL, 1, '345', 1, 0, '2022-04-21 21:37:06', 'admin', NULL, NULL);
 
 -- ----------------------------
+-- Table structure for  `Biz_CommentUp`
+-- ----------------------------
+DROP TABLE IF EXISTS `Biz_CommentUp`;
+CREATE TABLE `Biz_CommentUp`  (
+  `Id` int  NOT NULL,
+  `UserId` int NOT NULL DEFAULT 0,
+  `CommentId` int  NOT NULL DEFAULT 0,
+  `Create_Time` datetime DEFAULT NULL,
+  `Create_By` varchar(255) DEFAULT NULL,
+  `Update_Time` datetime DEFAULT NULL,
+  `Update_By` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Id`) USING BTREE,
+)ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of `Biz_CommentUp`
+-- ----------------------------
+INSERT INTO `Biz_CommentUp` VALUES (1, 1,3, '2023-11-21 17:33:47', 'user', NULL, NULL);
+INSERT INTO `Biz_CommentUp` VALUES (2, 1, 3, '2024-01-20 17:33:47', 'user', NULL, NULL);
+
+-- ----------------------------
 -- Table structure for biz_consumer
 -- ----------------------------
 DROP TABLE IF EXISTS `Biz_Consumer`;
 CREATE TABLE `Biz_Consumer`  (
-  `Id` int unsigned NOT NULL,
+  `Id` int  NOT NULL,
   `UserName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Sex` tinyint(0) NULL DEFAULT NULL,

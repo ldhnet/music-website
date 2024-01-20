@@ -170,6 +170,27 @@ INSERT INTO "Biz_Comment" VALUES (63, 1, NULL, 15, '里面乱乱糟糟 我们别
 INSERT INTO "Biz_Comment" VALUES (64, 1, NULL, 1, 456, 1, 0, '2022-04-21 21:37:06', 'admin', NULL, NULL);
 INSERT INTO "Biz_Comment" VALUES (68, 59, NULL, 1, 345, 1, 0, '2022-04-21 21:37:06', 'admin', NULL, NULL);
 
+
+-- ----------------------------
+-- Table structure for  "Biz_CommentUp"
+-- ----------------------------
+DROP TABLE IF EXISTS "Biz_CommentUp";
+CREATE TABLE "Biz_CommentUp"  (
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
+  "UserId" int NOT NULL DEFAULT 0,
+  "CommentId" int  NOT NULL DEFAULT 0,
+  "Create_Time" datetime DEFAULT NULL,
+  "Create_By" varchar(255) DEFAULT NULL,
+  "Update_Time" datetime DEFAULT NULL,
+  "Update_By" varchar(255) DEFAULT NULL  
+);
+
+-- ----------------------------
+-- Records of "Biz_CommentUp"
+-- ----------------------------
+INSERT INTO "Biz_CommentUp" VALUES (1, 1,3, '2023-11-21 17:33:47', 'user', NULL, NULL);
+INSERT INTO "Biz_CommentUp" VALUES (2, 1, 3, '2024-01-20 17:33:47', 'user', NULL, NULL);
+
 -- ----------------------------
 -- Table structure for Biz_Consumer
 -- ----------------------------
