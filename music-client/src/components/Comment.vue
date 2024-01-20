@@ -17,10 +17,10 @@
           <li class="content">{{ item.Content }}</li>
         </ul>
       </div>
-      <!--这特么是直接拿到了评论的id-->
+      <!--这是直接拿到了评论的id-->
       <div ref="up" class="comment-ctr" @click="setSupport(item.Id, item.Up,userId)">
         <div><yin-icon :icon="iconList.Support"></yin-icon> {{ item.Up }}</div>
-        <el-icon v-if="item.UserId === userId" @click="deleteComment(item.Id, index)"><delete /></el-icon>
+        <el-icon v-if="item.User_Id == userId" @click="deleteComment(item.Id, index)"><delete /></el-icon>
       </div>
     </li>
   </ul>
@@ -59,7 +59,8 @@ export default defineComponent({
     const userIdVO = computed(() => store.getters.userId);
     const songIdVO = computed(() => store.getters.songId);
     const songDetails = computed(() => store.getters.songDetails); // 单个歌单信息
-  
+
+    const userId = userIdVO.value; 
     watch(songIdVO, () => {
       getComment();
     });
@@ -69,12 +70,14 @@ export default defineComponent({
       try {
         const result = (await HttpManager.getAllComment(type.value, songDetails.value.Id)) as ResponseBody;
         commentList.value = result.Data;
-        for (let index = 0; index < commentList.value.length; index++) {
-          // 获取评论用户的昵称和头像
-          const resultUser = (await HttpManager.getUserOfId(commentList.value[index].User_Id)) as ResponseBody;
-          commentList.value[index].Avator = resultUser.Data[0].Avator;
-          commentList.value[index].UserName = resultUser.Data[0].UserName;
-        }
+        for (let index = 0; index < commentList.value.length; index++) { 
+          // 获取评论用户的昵称和头像 
+          if (commentList.value[index]) {      
+            const resultUser = (await HttpManager.getUserOfId(commentList.value[index].User_Id)) as ResponseBody;
+            commentList.value[index].Avator = resultUser.Data[0].Avator;
+            commentList.value[index].UserName = resultUser.Data[0].UserName;
+          }
+        } 
       } catch (error) {
         console.error(error);
       }
@@ -83,7 +86,6 @@ export default defineComponent({
     // 提交评论
     async function submitComment() {
       if (!checkStatus()) return;
-
       // 0 代表歌曲， 1 代表歌单
       let songListId = null;
       let songId = null;
@@ -94,8 +96,7 @@ export default defineComponent({
       } else if (type.value === 0) {
         nowType = 0;
         songId = `${playId.value}`;
-      }
-      const userId = userIdVO.value;
+      } 
       const content = textarea.value;
       const result = (await HttpManager.setComment({userId,content,songId,songListId,nowType})) as ResponseBody;
       (proxy as any).$message({
@@ -121,12 +122,12 @@ export default defineComponent({
     }
 
     // 点赞  还得再查一下
-    async function setSupport(id, up, userId) {
+    async function setSupport(id, up, userId) { 
       if (!checkStatus()) return;
       let result = null;
       let operatorR = null;
       const commentId = id;
-      //当然可以这么左 直接在判断的时候 进行点赞或者取消
+      //当然可以这么做 直接在判断的时候 进行点赞或者取消
       const r = (await HttpManager.testAlreadySupport({commentId,userId})) as ResponseBody;
       (proxy as any).$message({
         message: r.Description,
@@ -135,7 +136,7 @@ export default defineComponent({
       });
 
       if (r.Data){
-        up = up - 1;
+        up = up - 1 >= 0 ? up - 1 : 0;
         operatorR = (await HttpManager.deleteUserSupport({commentId,userId})) as ResponseBody;
         result = (await HttpManager.setSupport({id,up})) as ResponseBody;
       }else {
@@ -143,6 +144,7 @@ export default defineComponent({
         operatorR = (await HttpManager.insertUserSupport({commentId,userId})) as ResponseBody;
         result = (await HttpManager.setSupport({id,up})) as ResponseBody;
       }
+ 
       if (result.Tag == 1&&operatorR.Tag == 1) {
         // proxy.$refs.up[index].children[0].style.color = "#2796dd";
         await getComment();
