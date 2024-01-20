@@ -38,9 +38,11 @@ export default defineComponent({
 
       if (isLt10M > ltCode || isLt10M <= 0) {
         (proxy as any).$message.error(`图片大小范围是 0~${ltCode}MB!`);
+        return false;
       }
       if (!isExistFileType) {
         (proxy as any).$message.error(`图片只支持 ${uploadTypes.value.join("、")} 格式!`);
+        return false;
       }
 
       return isLt10M && isExistFileType;
@@ -48,12 +50,12 @@ export default defineComponent({
 
     function handleAvatarSuccess(response, file) {
       (proxy as any).$message({
-        message: response.message,
-        type: response.type,
+        message: response.Description,
+        type: response.Tag,
       });
 
-      if (response.success) {
-        proxy.$store.commit("setUserPic", response.data);
+      if (response.Tag == 1) {
+        proxy.$store.commit("setUserPic", response.Data);
       }
     }
 
