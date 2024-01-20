@@ -12,10 +12,10 @@ namespace HSharp.Contracts.MusicContracts
 {
     public interface IUserSupportContract
     {
-        TData IsUserSupportComment(UserSupportRequest dto);
+        Task<TData> IsUserSupportComment(UserSupportRequest dto);
 
-        TData InsertCommentSupport(UserSupportRequest dto);
+        Task<TData> InsertCommentSupport(UserSupportRequest dto);
 
-        TData DeleteCommentSupport(UserSupportRequest dto);
+        Task<TData> DeleteCommentSupport(UserSupportRequest dto);
     }
 }

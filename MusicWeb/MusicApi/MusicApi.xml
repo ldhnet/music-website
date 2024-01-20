@@ -67,11 +67,12 @@
             <param name="songListId"></param>
             <returns></returns>
         </member>
-        <member name="M:MusicApi.Controllers.CommentController.CommentOfLike(HSharp.Models.Request.CommentRequest)">
+        <member name="M:MusicApi.Controllers.CommentController.CommentOfLike(HSharp.Models.Request.CommentLike)">
             <summary>
             点赞
             </summary>
-            <param name="request"></param>
+            <param name="id"></param>
+            <param name="up"></param>
             <returns></returns>
         </member>
         <member name="M:MusicApi.Controllers.ConsumerController.AddUser(HSharp.Models.Request.ConsumerRequest)">

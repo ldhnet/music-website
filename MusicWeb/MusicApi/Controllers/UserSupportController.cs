@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc; 
 using HSharp.Models.Request;
 using HSharp.Contracts.MusicContracts;
+using HSharp.Util.Model;
 
 namespace MusicApi.Controllers
 {
@@ -17,27 +18,25 @@ namespace MusicApi.Controllers
         }
 
         [HttpPost]
-        [Route("/test")]
-        public IActionResult IsUserSupportComment([FromBody] UserSupportRequest request)
+        [Route("/userSupport/test")]
+        public async Task<TData> IsUserSupportComment([FromBody] UserSupportRequest request)
         {
-            var result = _userSupportContract.IsUserSupportComment(request);
-            return Ok(result);
+            return await _userSupportContract.IsUserSupportComment(request); 
         }
 
         [HttpPost]
-        [Route("/insert")]
-        public IActionResult InsertCommentSupport([FromBody] UserSupportRequest request)
+        [Route("/userSupport/insert")]
+        public async Task<TData> InsertCommentSupport([FromBody] UserSupportRequest request)
         {
-            var result = _userSupportContract.InsertCommentSupport(request);
-            return Ok(result);
+            return await _userSupportContract.InsertCommentSupport(request);
+          
         }
 
         [HttpPost]
-        [Route("/delete")]
-        public IActionResult DeleteCommentSupport([FromBody] UserSupportRequest request)
+        [Route("/userSupport/delete")]
+        public async Task<TData> DeleteCommentSupport([FromBody] UserSupportRequest request)
         {
-            var result = _userSupportContract.DeleteCommentSupport(request);
-            return Ok(result);
+            return await _userSupportContract.DeleteCommentSupport(request); 
         }
     }
 }

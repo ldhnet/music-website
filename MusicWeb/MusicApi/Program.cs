@@ -142,7 +142,7 @@ GlobalContext.HostUrl = url.Contains("*") ? url.Replace("*", "127.0.0.1") : url;
 
 //api Ô¤ÈÈ
 app.Lifetime.ApplicationStarted.Register(() => {
-    //GlobalConfig.LogWhenStart(GlobalConfig.HostEnvironment);
+    GlobalContext.LogWhenStart(GlobalContext.HostEnvironment!);
     var warm = GlobalContext.HostUrl.Split(';')[0] + "/Warm/Get";
     new HttpClient().GetAsync(warm).Wait();
 });

@@ -47,13 +47,18 @@ namespace HSharp.Services.MusicServices
             return obj;
         }
 
-        public async Task<TData> UpdateCommentMsg(CommentRequest dto)
+        public async Task<TData> UpdateCommentMsg(CommentLike dto)
         {
             TData<bool> obj = new TData<bool>();
-            obj.Tag = 1;
-            var entity = dto.MapTo<Biz_Comment>();
+            obj.Tag = 0;
+            if (dto.id == 0) return obj;
+            var entity = await _Repository.FindEntity<Biz_Comment>(c=>c.Id== dto.id);
+            if (entity == null) return obj;
+            entity.Up = dto.up >= 0? dto.up : 0;
+            entity.Update_Time=DateTime.Now;
             var result = await _Repository.Update(entity);
             obj.Data = result > 0;
+            obj.Tag = result;
             return obj;
         }
     }

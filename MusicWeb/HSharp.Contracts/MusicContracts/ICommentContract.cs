@@ -13,7 +13,7 @@ namespace HSharp.Contracts.MusicContracts
     {
         Task<TData> AddComment(CommentRequest dto);
 
-        Task<TData> UpdateCommentMsg(CommentRequest dto);
+        Task<TData> UpdateCommentMsg(CommentLike dto);
 
         Task<TData> DeleteComment(int id);
 

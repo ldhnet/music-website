@@ -22,4 +22,11 @@ namespace HSharp.Models.Request
 
         public int? Up { get; set; } = 0;//点赞
     }
+
+    public class CommentLike
+    {
+        public int id { get; set; } 
+
+        public int up { get; set; } = 0;//点赞
+    }
 }

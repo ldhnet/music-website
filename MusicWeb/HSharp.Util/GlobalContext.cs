@@ -22,7 +22,7 @@ namespace HSharp.Util
 
         public static IConfiguration Configuration { get; set; }
 
-        public static IHostEnvironment? HostEnvironment { get; set; }
+        public static IHostEnvironment HostEnvironment { get; set; }
 
         public static SystemConfig SystemConfig { get; set; } = new SystemConfig();
         public static string HostUrl { get; set; }

@@ -68,13 +68,14 @@ namespace MusicApi.Controllers
         /// <summary>
         /// 点赞
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="id"></param>
+        /// <param name="up"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         [Route("/comment/like")]
-        public async Task<TData> CommentOfLike([FromBody] CommentRequest request)
+        public async Task<TData> CommentOfLike(CommentLike dto)
         {
-            var result =await _commentContract.UpdateCommentMsg(request);
+            var result =await _commentContract.UpdateCommentMsg(dto);
             return result;
         }
     }
