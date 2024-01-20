@@ -107,6 +107,7 @@ import mixin from "@/mixins/mixin";
 import {HttpManager} from "@/api/index";
 import {RouterName} from "@/enums";
 import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
+import console, { Console } from "console";
 
 export default defineComponent({
   components: {
@@ -170,12 +171,12 @@ export default defineComponent({
     }
 
     // 更新图片
-    function handleImgSuccess(response, file) {
+    function handleImgSuccess(response, file) {  
       (proxy as any).$message({
-        message: response.Data.Description,
-        type: response.Data.Tag,
+        message: response.data.Description,
+        type: response.data.Tag,
       });
-      if (response.Data.Tag == 1) getData();
+      if (response.data.Tag == 1) getData();
     }
 
     /**

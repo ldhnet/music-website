@@ -311,12 +311,12 @@ export default defineComponent({
 
     function handleImgSuccess(response, file:any) {
       // console.log('file=======',file);
-      // console.log('result=======',JSON.stringify(response));
+      //console.log('result=======',JSON.stringify(response)); 
       (proxy as any).$message({
-        message: response.Data.Description,
-        type: response.Data.Tag,
+        message: response.data.Description,
+        type: response.data.Tag,
       });
-      if (response.Data.Tag == 1) {
+      if (response.data.Tag == 1) {
         getData();
       }
     }

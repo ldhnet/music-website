@@ -85,9 +85,13 @@ export default defineComponent({
       tempDate.value = [];
       const result = (await HttpManager.getListSongOfSongId(proxy.$route.query.id)) as ResponseBody;
       for (let item of result.Data) {
-        const result = await HttpManager.getSongOfId(item.Song_Id) as ResponseBody;
-        tableData.value.push(result.Data[0]);
-        tempDate.value.push(result.Data[0]);
+        if (item) {
+          const result = await HttpManager.getSongOfId(item.Song_Id) as ResponseBody;
+          if (result.Data&&result.Data[0]) {
+            tableData.value.push(result.Data[0]);
+            tempDate.value.push(result.Data[0]);
+          }   
+        }     
       }
     }
 
