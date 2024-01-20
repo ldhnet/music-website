@@ -111,19 +111,28 @@ namespace MusicApi.Controllers
         [Route("/song/img/update")]
         public async Task<TData> UpdateSingerPic([FromForm] IFormCollection formCollection, int id)
         {
-            TData obj = new TData();
-            obj.Tag = 1;
+            TData<string> obj = new TData<string>();
+         
             var files = formCollection.Files;
             if (!files.Any() || id == 0)
             {
+                obj.Tag = 0;
                 return obj;
             }
             var result = new FileMusicHelper().SaveFile(WebFilePath.SongPic, files);
             if (result.Item1)
             {
                 var imgPic = result.Item2.FirstOrDefault();
-                var ret =await _songContract.UpdateSongPic(id, imgPic);
-                return ret;
+                var ret = await _songContract.UpdateSongPic(id, imgPic);
+                obj.Tag = ret.Tag;
+                obj.Data = imgPic ?? DefaultSiteFile.defaultImgUrl;
+                obj.Description = "图片上传成功！";
+                return obj;
+            }
+            else
+            {
+                obj.Tag = 0;
+                obj.Description = "图片上传失败！";
             }
             return obj; 
         }
@@ -138,11 +147,12 @@ namespace MusicApi.Controllers
         [Route("/song/url/update")]
         public async Task<TData> UpdateSingerUrl([FromForm] IFormCollection formCollection, int id)
         {
-            TData obj = new TData();
-            obj.Tag = 1;
+            TData<string> obj = new TData<string>();
+           
             var files = formCollection.Files;
             if (!files.Any() || id == 0)
             {
+                obj.Tag = 0;
                 return obj;
             }
             var result = new FileMusicHelper().SaveFile(WebFilePath.SongVideo, files);
@@ -150,7 +160,15 @@ namespace MusicApi.Controllers
             {
                 var songUrl = result.Item2.FirstOrDefault();
                 var ret = await _songContract.UpdateSongUrl(id, songUrl);
-                return ret;
+                obj.Tag = ret.Tag;
+                obj.Data = songUrl ?? DefaultSiteFile.defaultImgUrl;
+                obj.Description = "图片上传成功！";
+                return obj;
+            }
+            else
+            {
+                obj.Tag = 0;
+                obj.Description = "图片上传失败！";
             }
             return obj;
         }
