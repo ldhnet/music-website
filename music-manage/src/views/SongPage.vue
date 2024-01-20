@@ -221,18 +221,19 @@ export default defineComponent({
     }
     function handleSongSuccess(res) {
       (proxy as any).$message({
-        message: res.data.message,
-        type: res.data.type,
+        message: res.data.Description,
+        type: res.data.Tag,
       });
-      if (res.data.success) getData();
+      if (res.data.Tag == 1) getData();
     }
     // 更新图片
     function handleImgSuccess(res, file) {
+      console.log("res======",res); 
       (proxy as any).$message({
-        message: res.data.message,
-        type: res.data.type,
+        message: res.data.Description,
+        type: res.data.Tag,
       });
-      if (res.data.success) getData();
+      if (res.data.Tag == 1) getData();
     }
 
     /**
@@ -266,10 +267,10 @@ export default defineComponent({
      */
     const centerDialogVisible = ref(false);
     const registerForm = reactive({
-      name: "",
-      singerName: "",
-      introduction: "",
-      lyric: "",
+      Name: "",
+      SingerName: "",
+      Introduction: "",
+      Lyric: "",
     });
 
     function addSong() {
@@ -288,10 +289,10 @@ export default defineComponent({
           });
           if (res.success) {
             getData();
-            registerForm.name = "";
-            registerForm.singerName = "";
-            registerForm.introduction = "";
-            registerForm.lyric = "";
+            registerForm.Name = "";
+            registerForm.SingerName = "";
+            registerForm.Introduction = "";
+            registerForm.Lyric = "";
           }
         }
       };

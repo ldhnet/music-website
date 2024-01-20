@@ -12,6 +12,7 @@
     </div>
     <el-table height="550px" border size="small" :data="tableData" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="40" align="center"></el-table-column>
+      <el-table-column label="Id" prop="Id" width="50" align="center"></el-table-column>
       <el-table-column prop="Name" label="歌手-歌曲"></el-table-column>
       <el-table-column label="操作" width="90" align="center">
         <template v-slot="scope">
@@ -50,7 +51,7 @@ export default defineComponent({
       } else {
         tableData.value = [];
         for (let item of tempDate.value) {
-          if (item.name.includes(searchWord.value)) {
+          if (item.Name.includes(searchWord.value)) {
             tableData.value.push(item);
           }
         }
@@ -66,8 +67,10 @@ export default defineComponent({
       const result = (await HttpManager.getCollectionOfUser(proxy.$route.query.id)) as any;
       for (let item of result.Data) {
         const result = await HttpManager.getSongOfId(item.Song_Id) as any;
-        tableData.value.push(result.Data[0]);
-        tempDate.value.push(result.Data[0]);
+        if (result.Data[0]) {
+          tableData.value.push(result.Data[0]);
+          tempDate.value.push(result.Data[0]);
+        }  
       }
     }
 
@@ -97,7 +100,7 @@ export default defineComponent({
     }
     function deleteAll() {
       for (let item of multipleSelection.value) {
-        deleteRow(item.id);
+        deleteRow(item.Id);
         confirm();
       }
       multipleSelection.value = [];
