@@ -17,7 +17,7 @@ namespace HSharp.Contracts.MusicContracts
 
         Task<TData> UpdateUserMsg(ConsumerRequest dto);
 
-        Task<TData> UpdateUserAvator(string avatorFileUrl, int id);
+        Task<TData> UpdateUserAvator(string? avatorFileUrl, int id);
 
         Task<TData> UpdatePassword(ConsumerRequest updatePasswordRequest);
 

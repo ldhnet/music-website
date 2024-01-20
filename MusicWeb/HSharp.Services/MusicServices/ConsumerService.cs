@@ -90,7 +90,7 @@ namespace HSharp.Services.MusicServices
             return obj;
         }
 
-        public async Task<TData> UpdateUserAvator(string avatorFileUrl, int id)
+        public async Task<TData> UpdateUserAvator(string? avatorFileUrl, int id)
         {
             TData<bool> obj = new TData<bool>();
             obj.Tag = 1;

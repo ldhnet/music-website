@@ -16,7 +16,7 @@ namespace HSharp.Util
         {
             List<string> filenames = new List<string>();
 
-            var filePath = GlobalContext.HostEnvironment.ContentRootPath + Path.DirectorySeparatorChar + savePath;
+            var filePath = GlobalContext.HostEnvironment.ContentRootPath + "/wwwroot" + Path.DirectorySeparatorChar + savePath;
 
             if (!Directory.Exists(filePath))
             {

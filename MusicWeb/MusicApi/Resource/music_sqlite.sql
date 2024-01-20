@@ -16,18 +16,17 @@
 PRAGMA foreign_keys = false;
 
 -- ----------------------------
--- Table structure for biz_admin
+-- Table structure for  "Biz_Admin"
 -- ----------------------------
- 
+DROP TABLE IF EXISTS "Biz_Admin";
 CREATE TABLE "Biz_Admin"  (
-  "Id" int unsigned NOT NULL,
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "UserName" varchar(45)  NOT NULL,
   "Password" varchar(45)  NOT NULL,
   "Create_Time" datetime DEFAULT NULL,
   "Create_By" varchar(255) DEFAULT NULL,
   "Update_Time" datetime DEFAULT NULL,
-  "Update_By" varchar(255) DEFAULT NULL,
-  PRIMARY KEY ("Id") 
+  "Update_By" varchar(255) DEFAULT NULL  
 );
 
 -- ----------------------------
@@ -36,12 +35,38 @@ CREATE TABLE "Biz_Admin"  (
 INSERT INTO "Biz_Admin" VALUES (1, 'admin', '123', '2022-11-21 17:33:47', 'admin', NULL, NULL);
 INSERT INTO "Biz_Admin" VALUES (2, 'admin1', '565', '2022-11-21 17:33:47', 'admin', NULL, NULL);
 
+
+-- ----------------------------
+-- Table structure for "Biz_Banner"
+-- ----------------------------
+DROP TABLE IF EXISTS "Biz_Banner";
+CREATE TABLE "Biz_Banner"  (
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
+  "Pic" varchar(255)  NOT NULL,
+  "Create_Time" datetime(0) NULL DEFAULT NULL,
+  "Create_By" varchar(255)  NULL DEFAULT NULL,
+  "Update_Time" datetime(0) NULL DEFAULT NULL,
+  "Update_By" varchar(255)  NULL DEFAULT NULL
+);
+
+-- ----------------------------
+-- Records of biz_banner
+-- ----------------------------
+INSERT INTO "Biz_Banner" VALUES (1, '/img/swiper/1.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO "Biz_Banner" VALUES (2, '/img/swiper/2.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO "Biz_Banner" VALUES (3, '/img/swiper/3.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO "Biz_Banner" VALUES (4, '/img/swiper/4.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO "Biz_Banner" VALUES (5, '/img/swiper/5.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO "Biz_Banner" VALUES (6, '/img/swiper/6.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO "Biz_Banner" VALUES (7, '/img/swiper/7.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO "Biz_Banner" VALUES (8, '/img/swiper/8.jpeg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+
 -- ----------------------------
 -- Table structure for Biz_Collect
 -- ----------------------------
 DROP TABLE IF EXISTS "Biz_Collect";
 CREATE TABLE "Biz_Collect" (
-  "Id" int NOT NULL,
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "User_Id" int NOT NULL,
   "Type" tinyint NOT NULL,
   "Song_Id" int,
@@ -49,8 +74,7 @@ CREATE TABLE "Biz_Collect" (
   "Create_Time" datetime DEFAULT NULL,
   "Create_By" varchar(255) DEFAULT NULL,
   "Update_Time" datetime DEFAULT NULL,
-  "Update_By" varchar(255) DEFAULT NULL,
-  PRIMARY KEY ("Id")
+  "Update_By" varchar(255) DEFAULT NULL 
 );
 
 -- ----------------------------
@@ -77,7 +101,7 @@ INSERT INTO "Biz_Collect" VALUES (98, 1, 0, 28, NULL, '2022-04-21 21:37:06', 'ad
 -- ----------------------------
 DROP TABLE IF EXISTS "Biz_Comment";
 CREATE TABLE "Biz_Comment" (
-  "Id" int unsigned NOT NULL,
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "User_Id" int unsigned NOT NULL,
   "Song_Id" int unsigned,
   "Song_List_Id" int unsigned,
@@ -87,8 +111,7 @@ CREATE TABLE "Biz_Comment" (
   "Create_Time" datetime DEFAULT NULL,
   "Create_By" varchar(255) DEFAULT NULL,
   "Update_Time" datetime DEFAULT NULL,
-  "Update_By" varchar(255) DEFAULT NULL,
-  PRIMARY KEY ("Id")
+  "Update_By" varchar(255) DEFAULT NULL 
 );
 
 -- ----------------------------
@@ -152,7 +175,7 @@ INSERT INTO "Biz_Comment" VALUES (68, 59, NULL, 1, 345, 1, 0, '2022-04-21 21:37:
 -- ----------------------------
 DROP TABLE IF EXISTS "Biz_Consumer";
 CREATE TABLE "Biz_Consumer" (
-  "Id" int unsigned NOT NULL,
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "UserName" varchar(255) NOT NULL,
   "Password" varchar(100) NOT NULL,
   "Sex" tinyint DEFAULT NULL,
@@ -165,14 +188,13 @@ CREATE TABLE "Biz_Consumer" (
   "Create_Time" datetime DEFAULT NULL,
   "Create_By" varchar(255) DEFAULT NULL,
   "Update_Time" datetime DEFAULT NULL,
-  "Update_By" varchar(255) DEFAULT NULL,
-  PRIMARY KEY ("Id")
+  "Update_By" varchar(255) DEFAULT NULL 
 );
 
 -- ----------------------------
 -- Records of "Biz_Consumer"
 -- ----------------------------
-INSERT INTO "Biz_Consumer" VALUES (1, 'user', 123, 0, 13776412237, 'yoona@qq.com', '2019-05-21 00:00:00', '好好吃饭', '山西', '/img/avatorImages/1650216352562L1.jpg', '2019-01-04 21:42:24', NULL, '2022-04-18 01:19:12', NULL);
+INSERT INTO "Biz_Consumer" VALUES (1, 'user', 123, 0, 13776412237, 'yoona@qq.com', '2019-05-21 00:00:00', '好好吃饭', '山西', '/img/avatorImages/user.jpg', '2019-01-04 21:42:24', NULL, '2022-04-18 01:19:12', NULL);
 INSERT INTO "Biz_Consumer" VALUES (2, '012', '012', 0, 13754803255, 'love@gmail.com', '2019-04-24 00:00:00', '我就喜欢吃', '北京', '/img/avatorImages/1649527868607author.jpg', '2019-01-05 15:02:45', NULL, '2020-03-23 01:24:59', NULL);
 INSERT INTO "Biz_Consumer" VALUES (5, 789, 789, 0, 13634377258, '666@126.com', '2019-01-08 00:00:00', '今天很开心啊', '山西', '/img/avatorImages/1646506637695IMG_4801.jpg', '2019-01-07 16:16:42', NULL, '2022-04-10 01:59:13', NULL);
 INSERT INTO "Biz_Consumer" VALUES (8, 'tawuhen', 123, 0, '', '192673541@qq.com', '2019-04-25 18:58:39', '你好', '北京', '/img/avatorImages/user.jpg', '2019-04-25 00:28:58', NULL, '2019-04-25 18:58:39', NULL);
@@ -199,14 +221,13 @@ INSERT INTO "Biz_Consumer" VALUES (60, 'xcv', 123, 1, NULL, NULL, '2022-04-22 00
 -- ----------------------------
 DROP TABLE IF EXISTS "Biz_List_Song";
 CREATE TABLE "Biz_List_Song" (
-  "Id" int unsigned NOT NULL,
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "Song_Id" int unsigned NOT NULL,
   "Song_List_Id" int unsigned NOT NULL,
   "Create_Time" datetime DEFAULT NULL,
   "Create_By" varchar(255) DEFAULT NULL,
   "Update_Time" datetime DEFAULT NULL,
-  "Update_By" varchar(255) DEFAULT NULL,
-  PRIMARY KEY ("Id")
+  "Update_By" varchar(255) DEFAULT NULL 
 );
 
 -- ----------------------------
@@ -422,15 +443,14 @@ INSERT INTO "Biz_List_Song" VALUES (209, 107, 23, '2022-11-21 21:37:06', 'admin'
 -- ----------------------------
 DROP TABLE IF EXISTS "Biz_Rank_List";
 CREATE TABLE "Biz_Rank_List" (
-  "Id" bigint unsigned NOT NULL,
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "SongListId" bigint unsigned NOT NULL,
   "ConsumerId" bigint unsigned NOT NULL,
   "Score" int unsigned NOT NULL,
   "Create_Time" datetime DEFAULT NULL,
   "Create_By" varchar(255) DEFAULT NULL,
   "Update_Time" datetime DEFAULT NULL,
-  "Update_By" varchar(255) DEFAULT NULL,
-  PRIMARY KEY ("Id")
+  "Update_By" varchar(255) DEFAULT NULL 
 );
 
 -- ----------------------------
@@ -464,7 +484,7 @@ INSERT INTO "Biz_Rank_List" VALUES (64, 9, 1, 8, '2022-11-21 21:37:06', 'admin',
 -- ----------------------------
 DROP TABLE IF EXISTS "Biz_Singer";
 CREATE TABLE "Biz_Singer" (
-  "Id" int unsigned NOT NULL,
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "Name" varchar(45) NOT NULL,
   "Sex" tinyint DEFAULT NULL,
   "Pic" varchar(255) DEFAULT NULL,
@@ -474,8 +494,7 @@ CREATE TABLE "Biz_Singer" (
   "Create_Time" datetime DEFAULT NULL,
   "Create_By" varchar(255) DEFAULT NULL,
   "Update_Time" datetime DEFAULT NULL,
-  "Update_By" varchar(255) DEFAULT NULL,
-  PRIMARY KEY ("Id")
+  "Update_By" varchar(255) DEFAULT NULL 
 );
 
 -- ----------------------------
@@ -507,7 +526,7 @@ INSERT INTO "Biz_Singer" VALUES (21, '金泰妍', 0, '/img/singerPic/taiyan.jpg'
 -- ----------------------------
 DROP TABLE IF EXISTS "Biz_Song";
 CREATE TABLE "Biz_Song" (
-  "Id" int unsigned NOT NULL,
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "Singer_Id" int unsigned NOT NULL,
   "Name" varchar(45) NOT NULL,
   "Introduction" varchar(255) DEFAULT NULL,
@@ -517,8 +536,7 @@ CREATE TABLE "Biz_Song" (
   "Create_By" varchar(50) DEFAULT NULL,
   "Create_Time" datetime NOT NULL,
   "Update_By" varchar(50) DEFAULT NULL,
-  "Update_Time" datetime DEFAULT NULL,
-  PRIMARY KEY ("Id")
+  "Update_Time" datetime DEFAULT NULL 
 );
 
 -- ----------------------------
@@ -552,7 +570,7 @@ INSERT INTO "Biz_Song" VALUES (26, 4, '陈奕迅-不要说话', '不想放手', 
 INSERT INTO "Biz_Song" VALUES (27, 5, 'G.E.M.邓紫棋-泡沫', 'Xposed', '/img/songPic/paomo.jpg', '[00:00.00] 作曲 : G.E.M.\n[00:00.169] 作词 : G.E.M.\n[00:00.509]阳光下的泡沫 是彩色的 就像被骗的我 是幸福的\n[00:14.940]追究什么对错 你的谎言 基于你还爱我\n[00:27.819]美丽的泡沫 虽然一刹花火 你所有承诺 虽然都太脆弱\n[00:41.780]但爱像泡沫 如果能够看破 有什么难过\n[00:53.750]\n[00:57.230]早该知道泡沫 一触就破 就像已伤的心 不胜折磨\n[01:11.040]也不是谁的错 谎言再多 基于你还爱我\n[01:24.200]美丽的泡沫 虽然一刹花火 你所有承诺 虽然都太脆弱\n[01:38.800]爱本是泡沫 如果能够看破 有什么难过\n[01:50.560]\n[01:52.629]再美的花朵 盛开过就凋落 再亮眼的星 一闪过就坠落\n[02:06.650]爱本是泡沫 如果能够看破 有什么难过\n[02:20.889]为什么难过 有什么难过 为什么难过\n[02:41.650]\n[02:45.799]全都是泡沫 只一刹的花火 你所有承诺 全部都太脆弱\n[02:59.560]而你的轮廓 怪我没有看破 才如此难过\n[03:13.769]相爱的把握 要如何再搜索 相拥着寂寞 难道就不寂寞\n[03:28.820]爱本是泡沫 怪我没有看破 才如此难过\n[03:39.980]\n[03:43.829]在雨下的泡沫 一触就破 当初炽热的心 早已沉没\n[03:57.940]说什么你爱我 如果骗我 我宁愿你沉默\n[04:10.000]\n[04:10.209]\n[59:59.700]', '/song/G.E.M.邓紫棋-泡沫.mp3', 'system', '2018-12-30 08:42:26', NULL, '2018-12-30 08:42:26');
 INSERT INTO "Biz_Song" VALUES (28, 5, 'G.E.M.邓紫棋-龙卷风', '龙卷风', '/img/songPic/longjuanfeng.jpg', '[00:00.00] 作曲 : 周杰伦\n[00:01.00] 作词 : 徐若瑄/周杰伦\n[00:20.05]爱像一阵风吹完它就走\n[00:26.54]这样的节奏谁都无可奈何\n[00:33.34]没有你以后我灵魂失控\n[00:39.81]黑云在降落我被它拖着走\n[00:46.30]静静悄悄默默离开\n[00:49.57]陷入了危险边缘Baby\n[00:53.74]我的世界已狂风暴雨\n[01:00.37]爱情来的太快就像龙卷风\n[01:03.29]离不开暴风圈来不及逃\n[01:06.32]我不能再想我不能再想\n[01:09.89]我不我不我不能\n[01:13.35]爱情走的太快就像龙卷风\n[01:16.58]不能承受我已无处可躲\n[01:19.51]我不要再想我不要再想\n[01:23.13]我不我不我不要再想你\n[01:26.97]不知不觉你已经离开我\n[01:30.00]不知不觉我跟了这节奏\n[01:33.31]后知后觉又过了一个秋\n[01:36.90]后知后觉我该好好生活\n[01:39.87]静静悄悄默默离开\n[01:42.86]陷入了危险边缘Baby\n[01:47.24]我的世界已狂风暴雨\n[01:53.64]爱情来的太快就像龙卷风\n[01:56.92]离不开暴风圈来不及逃\n[01:59.55]我不能再想我不能再想\n[02:02.83]我不我不我不能\n[02:06.61]爱情走的太快就像龙卷风\n[02:09.93]不能承受我已无处可躲\n[02:12.85]我不要再想我不要再想\n[02:16.19]我不我不我不要再想你\n[02:32.89]现在你要我说多难堪\n[02:35.43]我根本就不想分开\n[02:37.13]为什么还要我用用微笑来带过\n[02:40.56]没有我没有没有这种天分\n[02:43.31]包容你也接受他\n[02:44.64]但不用担心太多\n[02:45.90]我会一直好好过\n[02:47.25]我看着你已经远远离开\n[02:49.90]我也会慢慢的走开\n[02:51.50]为什么我连分开都迁就着你\n[02:54.01]我真的没有天分安静的没那么快\n[02:56.49]and i will learn to give up because\n[02:58.93]我爱你\n[03:00.27]爱情来的太快就像龙卷风\n[03:03.30]离不开暴风圈来不及逃\n[03:06.26]我不能再想我不能再想\n[03:09.59]我不我不我不能\n[03:13.61]爱情走的太快就像龙卷风\n[03:16.58]不能承受我已无处可躲\n[03:19.53]我不要再想我不要再想\n[03:22.82]我不我不我不要再想你\n[03:27.16]不知不觉你已经离开我\n[03:29.99]不知不觉我跟了这节奏\n[03:33.25]后知后觉又过了一个秋\n[03:36.62]后知后觉我该好好生活\n[03:41.62]你已经离开我\n[03:44.82]你已经留下我\n[03:47.91]我应该好好地生活\n[03:53.73]不知不觉你已经离开我\n[03:56.67]不知不觉我跟了这节奏\n[03:59.96]后知后觉又过了一个秋\n[04:03.31]后知后觉后知后觉', '/song/G.E.M.邓紫棋-龙卷风.mp3', 'system', '2018-12-30 08:48:44', NULL, '2018-12-30 08:48:44');
 INSERT INTO "Biz_Song" VALUES (29, 5, 'G.E.M.邓紫棋-夜空中最亮的星', '龙卷风', '/img/songPic/yekongzhongzuiliangdexing.jpg', '[00:00.00] 作曲 : 逃跑计划\n[00:01.00] 作词 : 逃跑计划\n[00:07.87]编曲 : Lupo Groinig\n[00:08.87]夜空中最亮的星 能否听清\n[00:17.23]那仰望的人 心底的孤独和叹息\n[00:26.09]夜空中最亮的星 能否记起\n[00:34.58]曾与我同行 消失在风里的身影\n[00:42.35]我祈祷拥有一颗透明的心灵\n[00:47.41]和会流泪的眼睛\n[00:52.91]给我再去相信的勇气\n[00:56.23]越过谎言去拥抱你\n[01:00.01]每当我找不到存在的意义\n[01:04.69]每当我迷失在黑夜里\n[01:10.36]夜空中最亮的星\n[01:13.71]请照亮我前行\n[01:22.91]夜空中最亮的星 是否知道\n[01:31.30]曾与我同行的身影 如今在哪里\n[01:40.43]夜空中最亮的星 是否在意\n[01:48.71]是太阳先升起 还是意外先来临\n[01:56.55]我祈祷拥有一颗透明的心灵\n[02:01.62]和会流泪的眼睛\n[02:07.07]给我再去相信的勇气\n[02:10.31]越过谎言去拥抱你\n[02:14.25]每当我找不到存在的意义\n[02:18.89]每当我迷失在黑夜里\n[02:24.53]夜空中最亮的星\n[02:27.91]请照亮我前行\n[02:33.63]夜空中最亮的星  请照亮我前行\n[02:41.98]夜空中最亮的星  请照亮我前行\n[02:50.76]夜空中最亮的星  请照亮我前行\n[02:59.46]夜空中最亮的星  请照亮我前行\n[03:11.62]我不愿忘记你的眼睛\n[03:16.81]给我再去相信的勇气\n[03:22.00]去拥抱你\n[03:25.74]我找不到存在的意义\n[03:28.90]我迷失在黑夜里\n[03:34.47]夜空中最亮的星 请照亮我前行', '/song/G.E.M.邓紫棋-夜空中最亮的星.mp3', 'system', '2018-12-30 08:53:52', NULL, '2018-12-30 08:53:52');
-INSERT INTO "Biz_Song" VALUES (30, 6, '梁耀燮-Shadow (그림자)', 'The First Collage', '/img/songPic/Shadow.jpg', '[00:00.00] 作曲 : 龙俊亨/金泰洙\n[00:01.00] 作词 : 龙俊亨/金泰洙\n[00:03.990]Shadow Shadow\n[00:11.950]Because I`m a Shadow\n[00:13.450]Shadow Shadow\n[00:16.750]Rainy Cloudy No light Darkness Day N Night\n[00:19.890]너 떠나버린\n[00:20.820]그 때부터 어쩌면 Maybe 내 존재 자체가 없어졌지\n[00:25.200]Back in the day\n[00:25.700]화창한 날씨 화려한 불빛\n[00:27.970]항상 네 곁에 있었지 내가 있었지 내가\n[00:30.450]Cause I`m Shadow Shadow Shadow\n[00:32.570]Give me the light light light\n[00:34.860]You are ma ma ma sunrise\n[00:38.470]너 없는 난 아무것도 아냐\n[00:41.110]넌 내 마지막 You`re my last\n[00:43.440]언제까지나 You`re my last\n[00:45.570]네가 불길이라도 난 뛰어들게\n[00:49.210]너와 나의 저 하늘을 검게 물들인 저 이별을 어서 지워줘\n[00:57.210]더 이상 내가 다가갈 수 없게\n[01:00.000]너를 바라볼 수 없게\n[01:02.250]네 곁에 머물고 싶어\n[01:03.909]Because I`m a Shadow Shadow Shadow\n[01:05.700]간절하게 원하고 있는데\n[01:09.130]눈부셨던 그때로 나 돌아갈래\n[01:13.980]그림자처럼 항상 함께였던\n[01:16.820]아름다운 네 미소가 날 비추던\n[01:20.660]Because I`m a Shadow Shadow Shadow\n[01:24.300]Early in the morning\n[01:26.310]오늘도 역시\n[01:28.500]The sun is hiding\n[01:32.740]빛은 사라졌지 널 데리고서 저 저 멀리로\n[01:37.539]Cause I`m a Shadow Shadow Shadow\n[01:39.300]Give me the light light light\n[01:41.920]You are ma ma ma sunrise\n[01:45.240]너 없는 난 아무것도 아냐\n[01:47.929]넌 내 마지막 You`re my last\n[01:50.270]언제까지나 You`re my last\n[01:52.300]네가 불길이라도 난 뛰어들게\n[01:56.000]너와 나의 저 하늘을 검게 물들인 저 이별을 어서 지워줘\n[02:04.000]더 이상 내가 다가갈 수 없게\n[02:06.880]너를 바라볼 수 없게\n[02:09.000]네 곁에 머물고 싶어\n[02:10.788]Because I`m a Shadow Shadow Shadow\n[02:12.459]간절하게 원하고 있는데\n[02:16.270]눈부셨던 그때로 나 돌아갈래\n[02:20.640]그림자처럼 항상 함께였던\n[02:23.570]아름다운 네 미소가 날 비추던\n[02:27.340]Because I`m a Shadow Shadow Shadow\n[02:30.420]Erase erase 잊어 지워\n[02:32.239]이젠 이젠 싫어 미워\n[02:34.640]Fall fall falln`down.Faded faded faded\n[02:38.000]I`m not a vampire，Not a night ghost\n[02:40.179]어둠 속에 흐느껴 네 이름 부르고\n[02:42.579]우리가 다시 함께 하기를 기다려\n[02:45.529]Cause a Shadow Shadow Shadow\n[02:47.630]Oh 너를 잊는다는 건 나 역시 지워진다는 걸\n[02:54.460]너와 나의 저 하늘을 검게 물들인 저 이별을 어서 지워줘\n[03:02.310]더 이상 내가 다가갈 수 없게\n[03:05.340]너를 바라볼 수 없게\n[03:07.420]네 곁에 머물고 싶어\n[03:09.119]Because I`m a Shadow Shadow Shadow\n[03:11.140]간절하게 원하고 있는데\n[03:14.660]눈부셨던 그때로 나 돌아갈래\n[03:19.260]그림자처럼 항상 함께였던\n[03:21.999]아름다운 네 미소가 날 비추던\n[03:26.000]Because I`m a Shadow Shadow Shadow\n[03:30.210]Because I`m a Shadow Shadow Shadow', '/song/梁耀燮-Shadow (그림자).mp3', 'system', '2018-12-30 09:08:58', NULL, '2018-12-30 09:08:58');
+INSERT INTO "Biz_Song" VALUES (30, 6, '梁耀燮-Shadow (그림자)', 'The First Collage', '/img/songPic/Shadow.jpg', '[00:00.00] 作曲 : 龙俊亨/金泰洙\n[00:01.00] 作词 : 龙俊亨/金泰洙\n[00:03.990]Shadow Shadow\n[00:11.950]Because I"m a Shadow\n[00:13.450]Shadow Shadow\n[00:16.750]Rainy Cloudy No light Darkness Day N Night\n[00:19.890]너 떠나버린\n[00:20.820]그 때부터 어쩌면 Maybe 내 존재 자체가 없어졌지\n[00:25.200]Back in the day\n[00:25.700]화창한 날씨 화려한 불빛\n[00:27.970]항상 네 곁에 있었지 내가 있었지 내가\n[00:30.450]Cause I"m Shadow Shadow Shadow\n[00:32.570]Give me the light light light\n[00:34.860]You are ma ma ma sunrise\n[00:38.470]너 없는 난 아무것도 아냐\n[00:41.110]넌 내 마지막 You"re my last\n[00:43.440]언제까지나 You"re my last\n[00:45.570]네가 불길이라도 난 뛰어들게\n[00:49.210]너와 나의 저 하늘을 검게 물들인 저 이별을 어서 지워줘\n[00:57.210]더 이상 내가 다가갈 수 없게\n[01:00.000]너를 바라볼 수 없게\n[01:02.250]네 곁에 머물고 싶어\n[01:03.909]Because I"m a Shadow Shadow Shadow\n[01:05.700]간절하게 원하고 있는데\n[01:09.130]눈부셨던 그때로 나 돌아갈래\n[01:13.980]그림자처럼 항상 함께였던\n[01:16.820]아름다운 네 미소가 날 비추던\n[01:20.660]Because I"m a Shadow Shadow Shadow\n[01:24.300]Early in the morning\n[01:26.310]오늘도 역시\n[01:28.500]The sun is hiding\n[01:32.740]빛은 사라졌지 널 데리고서 저 저 멀리로\n[01:37.539]Cause I"m a Shadow Shadow Shadow\n[01:39.300]Give me the light light light\n[01:41.920]You are ma ma ma sunrise\n[01:45.240]너 없는 난 아무것도 아냐\n[01:47.929]넌 내 마지막 You"re my last\n[01:50.270]언제까지나 You"re my last\n[01:52.300]네가 불길이라도 난 뛰어들게\n[01:56.000]너와 나의 저 하늘을 검게 물들인 저 이별을 어서 지워줘\n[02:04.000]더 이상 내가 다가갈 수 없게\n[02:06.880]너를 바라볼 수 없게\n[02:09.000]네 곁에 머물고 싶어\n[02:10.788]Because I"m a Shadow Shadow Shadow\n[02:12.459]간절하게 원하고 있는데\n[02:16.270]눈부셨던 그때로 나 돌아갈래\n[02:20.640]그림자처럼 항상 함께였던\n[02:23.570]아름다운 네 미소가 날 비추던\n[02:27.340]Because I"m a Shadow Shadow Shadow\n[02:30.420]Erase erase 잊어 지워\n[02:32.239]이젠 이젠 싫어 미워\n[02:34.640]Fall fall falln"down.Faded faded faded\n[02:38.000]I"m not a vampire，Not a night ghost\n[02:40.179]어둠 속에 흐느껴 네 이름 부르고\n[02:42.579]우리가 다시 함께 하기를 기다려\n[02:45.529]Cause a Shadow Shadow Shadow\n[02:47.630]Oh 너를 잊는다는 건 나 역시 지워진다는 걸\n[02:54.460]너와 나의 저 하늘을 검게 물들인 저 이별을 어서 지워줘\n[03:02.310]더 이상 내가 다가갈 수 없게\n[03:05.340]너를 바라볼 수 없게\n[03:07.420]네 곁에 머물고 싶어\n[03:09.119]Because I"m a Shadow Shadow Shadow\n[03:11.140]간절하게 원하고 있는데\n[03:14.660]눈부셨던 그때로 나 돌아갈래\n[03:19.260]그림자처럼 항상 함께였던\n[03:21.999]아름다운 네 미소가 날 비추던\n[03:26.000]Because I"m a Shadow Shadow Shadow\n[03:30.210]Because I"m a Shadow Shadow Shadow', '/song/梁耀燮-Shadow (그림자).mp3', 'system', '2018-12-30 09:08:58', NULL, '2018-12-30 09:08:58');
 INSERT INTO "Biz_Song" VALUES (31, 6, '梁耀燮-리본(Ribbon)', 'Highlight', '/img/songPic/Ribbon.jpg', '[by:Jensen48_]\n[00:00.00] 作曲 : Good Life\n[00:01.00] 作词 : 龙俊亨\n[00:29.02]단단했던 매듭이 결국엔\n[00:31.61]풀려버리고 마네요\n[00:35.66]설마 했던 이별이 가까이\n[00:38.65]다가와 버렸네요 정말로\n[00:42.98]아마도 지금 이 순간이\n[00:45.59]가장 힘든 순간이에요 내겐\n[00:50.23]걱정 말아요 그래도\n[00:52.36]그대 원망하진 않아요\n[00:56.96]모든 걸 잃어도 돌릴 수 없고\n[01:00.68]소중한 걸 지킬 수조차 없는\n[01:04.58]초라한 내 모습 뗄 수 없는 입술이\n[01:08.69]그댈 잡을 수 없게 하죠\n[01:11.50]난 다시 한 번 풀려버린\n[01:15.23]우리를 예쁘게 묶고 싶어\n[01:19.20]있는 힘껏 서로를 당기며\n[01:22.75]사랑을 매듭지을 수 있게\n[01:26.31]Tie up a ribbon 절대 풀리지 않게\n[01:29.93]Tie up a ribbon 서로를 놓을 수 없게\n[01:33.75]아직 늦은 게 아니라면\n[01:36.74]너도 나와 같을 수 있다면\n[01:41.29]받아들이는 게 아냐\n[01:42.96]내 뜻대로 할 수 있는 건\n[01:44.67]지금처럼 질질 짜거나\n[01:46.47]취한 채로 널 향해 걷는 거\n[01:48.43]아주 가끔씩 꿈에 찾아온\n[01:50.14]널 반갑게 맞아주는 거\n[01:51.87]아무렇지 않은 척 괜찮다며\n[01:54.05]웃어주는 것뿐이야 Baby\n[01:56.78]맞아 좋은 남잔 아니었어\n[01:58.47]나는 너에게\n[02:00.28]언제나 부족한 사람이었기에\n[02:03.86]지금처럼 노래 부르는 것도\n[02:06.32]부담이라면 미안해\n[02:08.89]전부를 버려도 바꿀 수 없고\n[02:12.64]싫어도 빼앗길 수밖에 없는\n[02:16.53]초라한 내 모습 뗄 수 없는 입술이\n[02:20.63]그댈 잡을 수 없게 하죠\n[02:23.44]난 다시 한 번 풀려버린\n[02:27.28]우리를 예쁘게 묶고 싶어\n[02:31.24]있는 힘껏 서로를 당기며\n[02:34.76]사랑을 매듭지을 수 있게\n[02:38.26]Tie up a ribbon 절대 풀리지 않게\n[02:41.83]Tie up a ribbon 서로를 놓을 수 없게\n[02:45.74]아직 늦은 게 아니라면\n[02:48.71]너도 나와 같을 수 있다면\n[02:52.93]너무 아름답게 또 당연한 듯이\n[02:56.72]내 곁에 머물러준 너\n[02:59.93]그래서 가까이 와버린 이별조차\n[03:03.89]알아채지 못한 걸까\n[03:07.27]이렇게 쉽게 끝나버린 만큼\n[03:11.11]그리움도 쉽게 지울 순 없을까\n[03:15.12]언제쯤이면 나는 널 웃으며\n[03:18.57]떠올릴 수 있을까\n[03:21.36]난 다시 한 번 풀려버린\n[03:24.89]우리를 예쁘게 묶고 싶어\n[03:28.82]있는 힘껏 서로를 당기며\n[03:32.40]다시 널 사랑할 수 있게\n[03:35.74]Tie up a ribbon 절대 풀리지 않게\n[03:39.46]Tie up a ribbon 서로를 놓을 수 없게\n[03:43.34]아직 늦은 게 아니라면\n[03:46.36]너도 나와 같을 수 있다면\n[03:50.57]Tie up a ribbon', '/song/梁耀燮-리본(Ribbon).mp3', 'system', '2018-12-30 09:59:49', NULL, '2018-12-30 09:59:49');
 INSERT INTO "Biz_Song" VALUES (33, 7, '艺声-문 열어봐 (Here I am)', 'Here I am', '/img/songPic/HereIam.jpg', '[00:00.00] 作曲 : 艺声/BrotherSu\n[00:01.00] 作词 : 艺声/BrotherSu\n[00:17.39]핑계가 필요 했었나 봐\n[00:24.44]편의점 앞에서 술을 조금 마셨어\n[00:32.90]정말 조금 인데도\n[00:36.07]세상이 흐려지는 게\n[00:39.13]좀 취한 것 같아 나\n[00:45.11]시계를 잃어 버렸나 봐\n[00:52.24]한쪽 팔이 허전해\n[00:55.87]바라보다 알았어\n[01:00.82]시계 탓도 아니고 내 팔 위에 있던\n[01:06.30]네 손 하나 느낄 수 없단 걸\n[01:12.85]매일 가던 길인데\n[01:16.55]어떻게 이렇게 네가\n[01:21.44]좋아하는 게 많았는지\n[01:26.84]손에 잡히는 데로\n[01:29.79]술기운에 사긴 샀는데\n[01:33.96]넌 아직 그 곳에 사는지\n[01:40.33]문 열어봐 내가 여기 왔잖아\n[01:45.78]왜 몰라 네가 좋아하던 화분에\n[01:51.05]꽃도 조금 샀는데\n[01:54.14]이것 봐 네가 사준 셔츠에\n[01:59.72]네 향기 빼고 모든 게 돌아왔는데\n[02:05.39]너만 없네 문 열어봐\n[02:15.76]그리 쉬운 말인데 그 땐 왜 그렇게\n[02:22.56]사랑한단 말이 어려웠는지\n[02:29.19]우리 헤어진 후에\n[02:32.43]네 모습 보이지 않아도\n[02:36.49]넌 아직 내 맘에 사는 지\n[02:42.51]문 열어봐 내가 여기 왔잖아\n[02:48.25]왜 몰라 네가 좋아하던 화분에\n[02:53.60]꽃도 조금 샀는데\n[02:56.70]이것 봐 네가 사준 셔츠에\n[03:02.32]네 향기 빼고 모든 게 돌아왔는데\n[03:07.83]너만 없네 문 열어봐\n[03:12.72]불 켜진 네 방 창가에\n[03:16.58]흐릿하게 보여\n[03:19.64]이름을 불러보지만\n[03:24.56]내 목소리 닿을 것만 같아\n[03:27.90]내 마음도 닿을 것만 같아\n[03:32.34]제발 닫힌 이 문 좀 열어봐\n[03:38.45]내게 돌아와\n[03:44.57]문 열어봐 내가 여기 왔잖아\n[03:50.18]왜 몰라 네가 좋아하던 화분에\n[03:55.45]꽃도 조금 샀는데\n[03:58.58]이것 봐 네가 사준 셔츠에\n[04:04.12]네 향기 빼고 모든 게 돌아왔는데\n[04:09.72]너만 없네 문 열어봐\n[04:19.82]문 열어봐', '/song/艺声-문 열어봐 (Here I am).mp3', 'system', '2018-12-30 10:31:30', NULL, '2018-12-30 10:31:30');
 INSERT INTO "Biz_Song" VALUES (34, 7, '艺声-春天的阵雨 (Paper Umbrella)', '봄날의 소나기', '/img/songPic/Umbrella.jpg', '[00:00.00] 作曲 : 1601\n[00:00.789] 作词 : 徐智恩\n[00:02.367]编曲：1601\n[00:16.785]네가 떠난 그 순간\n[00:20.411]온 세상이 내게서 등을 돌리더라\n[00:27.508]미친 사람같이 보고 싶어 헤매이는데\n[00:35.684]너는 지금 어디니\n[00:42.177]서투르게 사랑한 것처럼\n[00:49.283]헤어짐까지 또 서툴러서 미안해\n[00:56.639]아무것도 모르고 널 보낸 나라서\n[01:03.491]온다 떨어진다\n[01:06.158]내 찢어진 하늘 사이로\n[01:10.546]한 방울 두 방울 봄날의 소나기\n[01:17.698]너를 그려보다 불러보다\n[01:21.775]기억이 비처럼 내린 새벽\n[01:26.358]밤새 난 그 빗속에\n[01:29.686]종이로 된 우산을 쓰고 있네\n[01:39.305]괜찮다곤 했지만\n[01:42.883]버텨낼 수 있을까\n[01:45.452]나도 모르겠어\n[01:49.940]네가 없는 이 거리\n[01:53.816]그럼에도 꽃은 피는데\n[01:58.000]하염없는 기다림\n[02:04.642]미련하게 사랑한 것처럼\n[02:11.744]헤어짐까지\n[02:14.410]또 미련해서 미안해\n[02:18.999]못해준 게\n[02:20.661]이렇게 발목을 잡는 걸\n[02:25.948]온다 떨어진다\n[02:28.465]내 찢어진 하늘 사이로\n[02:32.989]한 방울 두 방울\n[02:36.560]봄날의 소나기\n[02:40.188]너를 그려보다 불러보다\n[02:44.166]기억이 비처럼 내린 새벽\n[02:48.602]밤새 난 그 빗속에\n[02:52.178]널 보내던 그날과 같은 하루\n[02:57.372]온몸이 굳어버린 난\n[03:00.946]그때처럼\n[03:02.309]단 한 발도 움직일 수 없는데\n[03:12.430]간다 사라진다\n[03:15.105]내 흐려진 시선 너머로\n[03:19.540]한 방울 두 방울 그리고 여전히\n[03:26.702]슬피 떨어지던 꽃잎 위에\n[03:30.834]기억이 비처럼 내린 새벽\n[03:35.217]밤새 난 그 빗속에 종이로\n[03:39.452]된 우산을 쓰고 있네', '/song/艺声-春天的阵雨 (Paper Umbrella).mp3', 'system', '2018-12-30 10:37:22', NULL, '2018-12-30 10:37:22');
@@ -568,7 +586,7 @@ INSERT INTO "Biz_Song" VALUES (40, 10, '王力宏-需要人陪', '十八般武�
 -- ----------------------------
 DROP TABLE IF EXISTS "Biz_Song_List";
 CREATE TABLE "Biz_Song_List" (
-  "Id" int unsigned NOT NULL,
+  "Id" INTEGER PRIMARY KEY AUTOINCREMENT,
   "Title" varchar(255) NOT NULL,
   "Pic" varchar(255) DEFAULT NULL,
   "Introduction" text DEFAULT NULL,
@@ -576,8 +594,7 @@ CREATE TABLE "Biz_Song_List" (
   "Create_Time" datetime DEFAULT NULL,
   "Create_By" varchar(50) DEFAULT NULL,
   "Update_Time" datetime DEFAULT NULL,
-  "Update_By" varchar(50) DEFAULT NULL,
-  PRIMARY KEY ("Id")
+  "Update_By" varchar(50) DEFAULT NULL 
 );
 
 -- ----------------------------
@@ -667,14 +684,5 @@ INSERT INTO "Biz_Song_List" VALUES (82, '还不快去练琴？', '/img/songListP
 INSERT INTO "Biz_Song_List" VALUES (83, '国风传统器乐赏~~♪', '/img/songListPic/18907201951803673.jpg', '中国音乐是光辉灿烂的中国文化的一个重要组成部分。当古典音乐流泻而出的一刹那间，你可以清楚的看到，在空气中流动的是高山、是流水、是丝竹、是冬雪、是千古的生命，那份说不出、道不尽的感动，就是中国古典音乐之美。', '乐器', '2022-11-25 16:37:06', 'admin', NULL, NULL);
 INSERT INTO "Biz_Song_List" VALUES (84, '『钢琴纯音』八十八个黑白键勾勒出的美', '/img/songListPic/109951162873752063.jpg', '钢琴如生活，是一首永远弹不完的小曲', '轻音乐-乐器', '2022-11-25 16:37:06', 'admin', NULL, NULL);
 INSERT INTO "Biz_Song_List" VALUES (86, 11, '/img/songListPic/123.jpg', '', '', '2022-11-25 16:37:06', 'admin', NULL, NULL);
-
--- ----------------------------
--- Table structure for sqlite_sequence
--- ----------------------------
-DROP TABLE IF EXISTS "sqlite_sequence";
-CREATE TABLE "sqlite_sequence" (
-  "name",
-  "seq"
-);
-
+ 
 PRAGMA foreign_keys = true;

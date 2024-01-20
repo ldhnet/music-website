@@ -91,11 +91,16 @@ namespace HSharp.Enum
         PayError = 7
     }
     public struct WebFilePath
-    {
+    { 
         public const string AvatorImages = "/img/avatorImages";
         public const string SingerPic = "/img/singerPic";
         public const string SongPic = "/img/songPic";
         public const string SongListPic = "/img/songListPic";
         public const string SongVideo = "/song";
+    }
+
+    public struct DefaultSiteFile
+    {
+        public const string defaultImgUrl =  "/img/avatorImages/default.jpg"; 
     }
 }

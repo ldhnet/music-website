@@ -113,20 +113,28 @@ namespace MusicApi.Controllers
         [Route("/user/avatar/update")] 
         public async Task<TData> UpdateUserPic([FromForm] IFormCollection formCollection, int id)
         {
-            TData obj = new TData();
-            obj.Tag = 1;
+            TData<string> obj = new TData<string>(); 
             var files = formCollection.Files;
             if (!files.Any() || id == 0)
             {
                 obj.Tag = 0;
+                obj.Description = "请选择图片！";
                 return obj;
             }
             var result = new FileMusicHelper().SaveFile(WebFilePath.AvatorImages, files);
             if (result.Item1)
             {
                 var imgPic = result.Item2.FirstOrDefault();
-                var ret =await _consumerContract.UpdateUserAvator(imgPic, id);
-                return ret;
+                var ret = await _consumerContract.UpdateUserAvator(imgPic, id);
+                obj.Tag = ret.Tag;
+                obj.Data = imgPic?? DefaultSiteFile.defaultImgUrl;
+                obj.Description = "图片上传成功！";
+                return obj;
+            }
+            else
+            {
+                obj.Tag = 0;
+                obj.Description = "图片上传失败！";
             }
             return obj;
         }

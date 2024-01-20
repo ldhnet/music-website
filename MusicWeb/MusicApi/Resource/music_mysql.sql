@@ -37,6 +37,34 @@ CREATE TABLE `Biz_Admin`  (
 -- ----------------------------
 INSERT INTO `Biz_Admin` VALUES (1, 'admin', '123', '2022-11-21 17:33:47', 'admin', NULL, NULL);
 INSERT INTO `Biz_Admin` VALUES (2, 'admin1', '565', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+
+
+-- ----------------------------
+-- Table structure for `Biz_Banner`
+-- ----------------------------
+DROP TABLE IF EXISTS `Biz_Banner`;
+CREATE TABLE `Biz_Banner`  (
+  `Id` int(0) NOT NULL AUTO_INCREMENT,
+  `Pic` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Create_Time` datetime(0) NULL DEFAULT NULL,
+  `Create_By` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `Update_Time` datetime(0) NULL DEFAULT NULL,
+  `Update_By` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`Id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of biz_banner
+-- ----------------------------
+INSERT INTO `Biz_Banner` VALUES (1, '/img/swiper/1.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO `Biz_Banner` VALUES (2, '/img/swiper/2.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO `Biz_Banner` VALUES (3, '/img/swiper/3.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO `Biz_Banner` VALUES (4, '/img/swiper/4.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO `Biz_Banner` VALUES (5, '/img/swiper/5.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO `Biz_Banner` VALUES (6, '/img/swiper/6.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO `Biz_Banner` VALUES (7, '/img/swiper/7.jpg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+INSERT INTO `Biz_Banner` VALUES (8, '/img/swiper/8.jpeg', '2022-11-21 17:33:47', 'admin', NULL, NULL);
+
   
 -- ----------------------------
 -- Table structure for Biz_Collect

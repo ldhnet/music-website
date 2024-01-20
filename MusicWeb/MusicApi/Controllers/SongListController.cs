@@ -84,12 +84,11 @@ namespace MusicApi.Controllers
         [Route("/songList/img/update")]
         public async Task<TData> UpdateSongListPic([FromForm] IFormCollection formCollection, int id)
         {
-
-            TData obj = new TData();
-            obj.Tag = 1;
+            TData<string> obj = new TData<string>();         
             var files = formCollection.Files;
             if (!files.Any() || id == 0)
             {
+                obj.Tag = 0;
                 return obj;
             }
             var result = new FileMusicHelper().SaveFile(WebFilePath.SongListPic, files);
@@ -97,7 +96,15 @@ namespace MusicApi.Controllers
             {
                 var songUrl = result.Item2.FirstOrDefault();
                 var ret =await _songListContract.UpdateSongListPic(id, songUrl);
-                return ret;
+                obj.Tag = ret.Tag;
+                obj.Data = songUrl ?? DefaultSiteFile.defaultImgUrl;
+                obj.Description = "图片上传成功！";
+                return obj;
+            }
+            else
+            {
+                obj.Tag = 0;
+                obj.Description = "图片上传失败！";
             }
             return obj;
         }
