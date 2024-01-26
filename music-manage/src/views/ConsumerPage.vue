@@ -10,10 +10,15 @@
       <el-table-column label="Id" prop="Id" width="50" align="center"></el-table-column>
       <el-table-column label="用户头像" width="102" align="center">
         <template v-slot="scope">
-          <img :src="attachImageUrl(scope.row.Avator)" style="width: 80px" />
+          <img :src="attachImageUrl(scope.row.Avator)" style="width: 80px" />  
         </template>
       </el-table-column>
-      <el-table-column label="用户名" prop="UserName" width="80" align="center"></el-table-column>
+      <!-- <el-table-column label="用户名"  prop="UserName" width="80" align="center"></el-table-column> -->
+      <el-table-column label="用户名"  width="80" align="center">
+        <template v-slot="scope">  
+          <div v-color="'red'"> {{ scope.row.UserName }}</div>
+        </template> 
+      </el-table-column>
       <el-table-column label="性别" width="50" align="center">
         <template v-slot="scope">
           <div>{{ changeSex(scope.row.Sex) }}</div>
@@ -62,6 +67,7 @@ import { HttpManager } from "@/api";
 import { RouterName } from "@/enums";
 import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
 import { getBirth } from "@/utils";
+import { color } from "echarts";
 
 export default defineComponent({
   components: {

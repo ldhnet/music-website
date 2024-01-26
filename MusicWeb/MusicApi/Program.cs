@@ -109,18 +109,18 @@ GlobalContext.wwwroot = resource;
 FileHelper.CreateDirectory(resource);
 
 //¿ªÆôÄ¿Â¼ä¯ÀÀ
-app.UseDirectoryBrowser(new DirectoryBrowserOptions
-{
-    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(resource),
-    RequestPath = "/wwwroot"
-});
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(resource),
-    RequestPath = "/wwwroot"
-});
+//app.UseDirectoryBrowser(new DirectoryBrowserOptions
+//{
+//    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(resource),
+//    RequestPath = "/wwwroot"
+//});
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(resource),
+//    RequestPath = "/wwwroot"
+//});
 
-//app.UseStaticFiles();
+app.UseStaticFiles();
 
 //app.UseStaticFiles(new StaticFileOptions
 //{
