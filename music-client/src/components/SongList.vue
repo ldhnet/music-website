@@ -65,24 +65,23 @@ export default defineComponent({
     const dataList = computed(() => {
     const list = [];
         songList.value.forEach((item: any, index) => {
-          if(item){
+          if(item){ 
             item["SongName"] = getSongTitle(item.Name);
             item["SingerName"] = getSingerName(item.Name);
             item["Index"] = index;
             list.push(item);
           }        
-        });
-      
+        });      
       return list;
     });
 
-    function handleClick(row) {
+    function handleClick(row) { 
       playMusic({
         id: row.Id,
         url: row.Url,
         pic: row.Pic,
         index: row.Index,
-        name: row.Title,
+        name: row.Name,
         lyric: row.Lyric,
         currentSongList: songList.value,
       });

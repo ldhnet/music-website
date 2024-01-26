@@ -71,7 +71,7 @@ export default defineComponent({
       const result = (await HttpManager.getRankOfSongListId(id)) as ResponseBody;
       nowRank.value = result.Data / 2;
     }
-    async function getUserRank(userId, songListId) {
+    async function getUserRank(userId, songListId) {  
       const result = (await HttpManager.getUserRank(userId, songListId)) as ResponseBody;
       nowScore.value = result.Data / 2;
       disabledRank.value = true;
@@ -101,8 +101,9 @@ export default defineComponent({
         console.error(error);
       }
     }
-
-    getUserRank(nowUserId.value, nowSongListId.value);
+    if (nowUserId.value) { // 判断用户是否登录
+      getUserRank(nowUserId.value, nowSongListId.value);
+    }
     getRank(nowSongListId.value); // 获取评分
     getSongId(nowSongListId.value); // 获取歌单里面的歌曲ID
 
