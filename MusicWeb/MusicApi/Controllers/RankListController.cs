@@ -42,7 +42,12 @@ namespace MusicApi.Controllers
             return result;
         }
 
-
+        /// <summary>
+        /// 获取指定歌单的评分
+        /// </summary>
+        /// <param name="consumerId"></param>
+        /// <param name="songListId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("/rankList/user")]
         public async Task<TData> GetUserRank(int consumerId,int songListId)

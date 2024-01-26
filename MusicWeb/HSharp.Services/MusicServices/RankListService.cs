@@ -33,7 +33,7 @@ namespace HSharp.Services.MusicServices
             obj.Data = rankScore;
             return obj;
         }
-
+        
         public async Task<TData> RankOfSongListId(int songListId)
         {
             TData<int> obj = new TData<int>();

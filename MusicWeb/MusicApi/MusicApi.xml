@@ -172,6 +172,14 @@
             <param name="songListId"></param>
             <returns></returns>
         </member>
+        <member name="M:MusicApi.Controllers.RankListController.GetUserRank(System.Int32,System.Int32)">
+            <summary>
+            获取指定歌单的评分
+            </summary>
+            <param name="consumerId"></param>
+            <param name="songListId"></param>
+            <returns></returns>
+        </member>
         <member name="M:MusicApi.Controllers.SingerController.AddSinger(HSharp.Models.Request.SingerRequest)">
             <summary>
             添加歌手

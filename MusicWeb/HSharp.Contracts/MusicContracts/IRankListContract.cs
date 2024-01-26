@@ -16,6 +16,6 @@ namespace HSharp.Contracts.MusicContracts
 
         Task<TData> RankOfSongListId(int songListId);
 
-        Task<TData> GetUserRank(int consumerId, int songListId);
+        Task<TData> GetUserRank(int consumerId, int songListId); 
     }
 }
