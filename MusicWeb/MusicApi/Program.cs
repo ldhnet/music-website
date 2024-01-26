@@ -121,14 +121,7 @@ FileHelper.CreateDirectory(resource);
 //});
 
 app.UseStaticFiles();
-
-//app.UseStaticFiles(new StaticFileOptions
-//{
-//    RequestPath = "/wwwroot",
-//    FileProvider = new PhysicalFileProvider(resource),
-//    OnPrepareResponse = GlobalContext.SetCacheControl
-//});
-
+ 
 app.UseMiddleware(typeof(GlobalExceptionMiddleware));
 
 app.UseStateAutoMapper();

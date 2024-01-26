@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-aside class="album-slide">
-      <el-image class="album-img" fit="contain" :src="attachImageUrl(songDetails.Pic)" />
+      <el-image class="album-img" fit="contain" :src="attachImageUrl(songDetails.Pic)"  v-previewimage="attachImageUrl(songDetails.Pic)"/>
       <h3 class="album-info">{{ songDetails.Title }}</h3>
     </el-aside>
     <el-main class="album-main">
