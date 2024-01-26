@@ -3,8 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using HSharp.Mapper;
 using HSharp.Util;
 using HSharp.Util.Model;
-using Microsoft.AspNetCore.DataProtection;
-using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.DataProtection; 
 using Microsoft.OpenApi.Models;
 using MusicApi.Filter;
 using Newtonsoft.Json.Serialization;
@@ -87,8 +86,9 @@ Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);  // ×¢²áEncoding
 GlobalContext.SystemConfig = builder.Configuration.GetSection("SystemConfig").Get<SystemConfig>()!;
 GlobalContext.Services = builder.Services;
 GlobalContext.Configuration = builder.Configuration;
-
- 
+GlobalContext.wwwroot = builder.Environment.WebRootPath 
+    ;
+GlobalContext.ContentRootPath = builder.Environment.ContentRootPath;
 
 var app = builder.Build();
  
@@ -103,9 +103,24 @@ else
 }
 
 string resource = Path.Combine(app.Environment.ContentRootPath, "wwwroot");
+
+GlobalContext.wwwroot = resource;
+
 FileHelper.CreateDirectory(resource);
 
-app.UseStaticFiles();
+//¿ªÆôÄ¿Â¼ä¯ÀÀ
+app.UseDirectoryBrowser(new DirectoryBrowserOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(resource),
+    RequestPath = "/wwwroot"
+});
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(resource),
+    RequestPath = "/wwwroot"
+});
+
+//app.UseStaticFiles();
 
 //app.UseStaticFiles(new StaticFileOptions
 //{

@@ -26,6 +26,10 @@ namespace HSharp.Util
 
         public static SystemConfig SystemConfig { get; set; } = new SystemConfig();
         public static string HostUrl { get; set; }
+
+        public static string wwwroot { get; set; }
+        public static string ContentRootPath { get; set; }
+        public static string WebRootPath { get; set; }
         public static string GetVersion()
         {
             Version version = Assembly.GetEntryAssembly().GetName().Version;
