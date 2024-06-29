@@ -5,10 +5,9 @@ Vue3.2 + NET8 + EFCore 音乐播放网站
 <br/>
 GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 <br/>
-
-技术支持邮箱：574427343@qq.com
-<br/>
-同时欢迎Issues反馈
+- QQ技术交流群（972107977）
+- 技术支持邮箱：574427343@qq.com
+- 同时欢迎Issues反馈
 <br/>
 
 本开源项目是参照 Yinhongwei 大佬的 Vue + SpringBoot + MyBatis 音乐网站项目<br/>
