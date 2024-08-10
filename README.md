@@ -13,14 +13,16 @@ GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 本开源项目是参照 Yinhongwei 大佬的 Vue + SpringBoot + MyBatis 音乐网站项目<br/>
 尊重源作者  [Yin-hongwei](https://gitee.com/Yin-hongwei/)
 
-#### 预览入[由于购买的私有云服务器到期未续费，预览入口暂时关闭，生活不易，谢谢体谅]
+#### 预览入[由于购买的私有云服务器到期不再未续费，预览入口会暂时关闭，生活不易，谢谢体谅]
 
 ###### music-webapi 
-[music-webapi预览入口](http://180.76.235.148:9010/swg-login.html)
-###### music-manage
-[music-manage预览入口](http://180.76.235.148:8086/)
+[music-webapi预览入口](http://124.223.117.49:9005/api-doc/index.html)
 ###### music-client
-[music-client预览入口](http://180.76.235.148:8087/) 
+[music-client预览入口](http://124.223.117.49:9006/) 
+
+###### music-manage
+[music-manage预览入口](http://124.223.117.49:9007/)
+
 <br/>
 
 ## 项目预览
@@ -84,7 +86,7 @@ git clone https://gitee.com/ldhnet/music-website.git
 
 ### 2、下载数据库中记录的资源
 
-去【链接: https://pan.baidu.com/s/1ChYYzZFDLGNP8nCT0Hjx7g  提取码: duzz 】下载网站依赖的歌曲及图片，将 data 夹里的文件放到 MusicWeb/wwwroot 文件夹下。
+去【链接: https://pan.baidu.com/s/1ChYYzZFDLGNP8nCT0Hjx7g  提取码: duzz 】下载网站依赖的歌曲及图片，将 data 夹里的文件放到 MusicWeb/MusicApi/wwwroot 文件夹下。
  
 ### 3、修改配置文件
 
