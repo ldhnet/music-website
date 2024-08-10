@@ -16,12 +16,22 @@ GitHub地址  [music-website](https://github.com/ldhnet/music-website)
 #### 预览入[由于购买的私有云服务器到期不再未续费，预览入口会暂时关闭，生活不易，谢谢体谅]
 
 ###### music-webapi 
+
 [music-webapi预览入口](http://124.223.117.49:9005/api-doc/index.html)
+
+
 ###### music-client
-[music-client预览入口](http://124.223.117.49:9006/) 
+[music-client预览入口](http://124.223.117.49:9006/)   
+
+```
+账号：user 密码：123
+```
 
 ###### music-manage
 [music-manage预览入口](http://124.223.117.49:9007/)
+```
+账号：admin 密码：123
+```
 
 <br/>
 
