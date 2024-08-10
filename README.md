@@ -103,24 +103,38 @@ git clone https://gitee.com/ldhnet/music-website.git
 1）创建数据库
 
 将 `music-website/sql` 文件夹中的
+```
    `music_sqlite.sql`对应 sqlite 数据库 。
    `music_mysql.sql`对应 mysql 数据库 。
    `music_sqlserver.sql`对应 sqlserver 数据库 。
+```
  
 ### 4、启动项目
 
-- **启动管理端**：进入 MusicWeb 文件夹，VS 2022 IDE 打开（由于升级到了.NET8 需要VS2022 v17.8.0及以上版本） 
+- **启动管理端**：
+```
+1、进入 MusicWeb 文件夹，VS 2022 IDE 打开（由于升级到了.NET8 需要VS2022 v17.8.0及以上版本）
+
+2、建议选择Sqlite 数据库文件在music-website/sql文件夹下的music_sqlite.db 复制放在D盘\DB\文件夹下
+```
+
 - **启动客户端**：进入 music-client 目录，运行下面命令
 
 ```js
 npm install // 安装依赖
+
 npm run dev // 启动前台项目
+
+npm run build:dev // 打包部署
+npm run build:prod // 打包部署
 ```
 - **启动管理端**：进入 music-manage 目录，运行下面命令
 ```js
 npm install // 安装依赖
 
 npm run serve // 启动后台管理项目
+
+npm run build // 打包部署
 ```
 <br/>
 ## 赞助
@@ -130,4 +144,4 @@ npm run serve // 启动后台管理项目
 <img src="https://gitee.com/ldhnet/vue3-ts-vant-h5/raw/master/src/assets/img/wxpay.png" height="300px"/>
 <br/>
 ## License
-Copyright (c) 2022 Music
+Copyright (c) 2024 Music
