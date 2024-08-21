@@ -11,13 +11,13 @@ Vue + NET6+ EFCore音乐网站  本开源项目是模仿 Yinhongwei 大佬的 Vu
 #### 预览入口
 
 ###### music-webapi 
-[music-webapi预览入口](http://180.76.235.148:9010/swg-login.html)
+[music-webapi预览入口](http://124.223.117.49:9005/api-doc/index.html)
 
 ###### music-manage
-[music-manage预览入口](http://180.76.235.148:8086/)
+[music-manage预览入口](http://124.223.117.49:9007/)
 
 ###### music-client
-[music-client预览入口](http://180.76.235.148:8087/)
+[music-client预览入口](http://124.223.117.49:9006/)
  
 <br/>
 
