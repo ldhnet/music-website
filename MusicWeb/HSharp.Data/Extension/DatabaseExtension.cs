@@ -62,6 +62,41 @@ namespace HSharp.Data.Extension
                 return list;
             }
         }
+        /// <summary>
+        /// 将IDataReader转换为对象
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="reader"></param>
+        /// <returns></returns>
+        public static T IDataReaderToEntity<T>(IDataReader reader)
+        {
+            if (!reader.Read())
+            {
+                return Activator.CreateInstance<T>();
+            }
+            using (reader)
+            {
+                List<string> field = new List<string>(reader.FieldCount);
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    field.Add(reader.GetName(i).ToLower());
+                }
+                T model = Activator.CreateInstance<T>();
+                foreach (PropertyInfo property in ReflectionHelper.GetProperties(model.GetType()))
+                {
+                    if (field.Contains(property.Name.ToLower()))
+                    {
+                        if (!IsNullOrDBNull(reader[property.Name]))
+                        {
+                            property.SetValue(model, HackType(reader[property.Name], property.PropertyType), null);
+                        }
+                    }
+                }
+                reader.Close();
+                reader.Dispose();
+                return model;
+            }
+        }
 
         /// <summary>
         /// 将IDataReader转换为集合
